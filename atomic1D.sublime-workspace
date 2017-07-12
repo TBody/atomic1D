@@ -1,0 +1,1230 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"elem",
+				"element"
+			],
+			[
+				"eleme",
+				"elements_years"
+			],
+			[
+				"open",
+				"open_adas_url"
+			],
+			[
+				"__",
+				"__name__"
+			],
+			[
+				"in",
+				"integer"
+			],
+			[
+				"is",
+				"isinstance"
+			],
+			[
+				"sta",
+				"staging_power"
+			],
+			[
+				"rad",
+				"rad_power"
+			],
+			[
+				"cooling",
+				"cooling_power"
+			],
+			[
+				"keys",
+				"keys_b"
+			],
+			[
+				"assert_al",
+				"assert_almost_equal"
+			],
+			[
+				"as",
+				"assert_\tfunction"
+			],
+			[
+				"pas",
+				"parser"
+			],
+			[
+				"read",
+				"readline"
+			],
+			[
+				"data",
+				"data_list"
+			],
+			[
+				"test",
+				"test_rates"
+			],
+			[
+				"length",
+				"length_of_data_section"
+			],
+			[
+				"entr",
+				"entries_per_line"
+			],
+			[
+				"MET",
+				"METF"
+			],
+			[
+				"file",
+				"file_header"
+			],
+			[
+				"spece",
+				"species\t(Power_scan_plot_neutrals.m)"
+			],
+			[
+				"Comp",
+				"Computational_line_width"
+			],
+			[
+				"prod",
+				"production_keys"
+			],
+			[
+				"pro",
+				"production_keys"
+			],
+			[
+				"max",
+				"max_Rate"
+			],
+			[
+				"Production",
+				"production_keys"
+			],
+			[
+				"Max",
+				"max_NH3"
+			],
+			[
+				"Find",
+				"Find_in_SI2E"
+			],
+			[
+				"Com",
+				"Computational_line_width\t(New_scans_plot_all.m)"
+			],
+			[
+				"Line",
+				"LineWidth\t(Process_new_graphs.m)"
+			],
+			[
+				"Spec",
+				"SpeciesKey"
+			],
+			[
+				"xl",
+				"xlabel_multiplier"
+			],
+			[
+				"x",
+				"xlabel_multiplier"
+			],
+			[
+				"X",
+				"xlabel"
+			],
+			[
+				"Col",
+				"ColumnWidthStyle"
+			],
+			[
+				"Fu",
+				"FullWidthStyle"
+			],
+			[
+				"Co",
+				"Column\t(New_scans_plot_surface.m)"
+			],
+			[
+				"Exp",
+				"ExportStyle"
+			],
+			[
+				"ne",
+				"neutral_handles"
+			],
+			[
+				"srt",
+				"sorted_expt"
+			],
+			[
+				"sort",
+				"sorted_expt"
+			],
+			[
+				"store",
+				"store_expt"
+			],
+			[
+				"sorte",
+				"sorted_expt"
+			],
+			[
+				"sorted",
+				"sorted_norm"
+			],
+			[
+				"expt",
+				"expt_sorting"
+			],
+			[
+				"exp",
+				"expt_sorting"
+			],
+			[
+				"min",
+				"min_difference"
+			],
+			[
+				"comp",
+				"comp_points"
+			],
+			[
+				"yla",
+				"ylabel"
+			],
+			[
+				"neutra",
+				"neutral_handles"
+			],
+			[
+				"iter",
+				"iter2"
+			],
+			[
+				"MATLA",
+				"MATLAB_colours"
+			],
+			[
+				"com",
+				"Computational_line_width"
+			],
+			[
+				"Lne",
+				"LineWidth"
+			],
+			[
+				"MA",
+				"MATLAB_colours"
+			],
+			[
+				"Ne",
+				"NeutralLegend"
+			],
+			[
+				"pd",
+				"pDkey"
+			],
+			[
+				"norm",
+				"normalisation"
+			],
+			[
+				"max_",
+				"Max_Expt"
+			],
+			[
+				"pD",
+				"pDkey"
+			],
+			[
+				"Scan",
+				"Scan_values"
+			],
+			[
+				"fpr",
+				"fprintf\t(Run_single_variable_scan.m)"
+			],
+			[
+				"spc",
+				"species_indices"
+			],
+			[
+				"species_inde",
+				"species_indices"
+			],
+			[
+				"speci",
+				"species_indices"
+			],
+			[
+				"species",
+				"species_index"
+			],
+			[
+				"plot",
+				"plot_species"
+			],
+			[
+				"SCan",
+				"Scan_parameter"
+			],
+			[
+				"Conv",
+				"Converged"
+			],
+			[
+				"R_",
+				"R_Converged"
+			],
+			[
+				"So",
+				"SortIndices"
+			],
+			[
+				"Ene",
+				"Energy"
+			],
+			[
+				"Ind",
+				"IndependentVariable"
+			],
+			[
+				"Mark",
+				"MarkerSize"
+			],
+			[
+				"Len",
+				"Legend"
+			],
+			[
+				"else",
+				"elseif\telseif"
+			],
+			[
+				"els",
+				"elseif\telseif"
+			],
+			[
+				"log",
+				"logical"
+			],
+			[
+				"Spe",
+				"Species_I2E"
+			],
+			[
+				"In",
+				"IndependentVariable"
+			],
+			[
+				"Inde",
+				"IndependentVariable"
+			],
+			[
+				"P",
+				"PlotStruct"
+			],
+			[
+				"Res",
+				"Results"
+			],
+			[
+				"Y",
+				"Y_N"
+			],
+			[
+				"Y_",
+				"Y_N"
+			],
+			[
+				"Tit",
+				"TitleList"
+			],
+			[
+				"Gas",
+				"GasSupply"
+			],
+			[
+				"Tot",
+				"TotalFlow"
+			],
+			[
+				"Ga",
+				"GasSupply"
+			],
+			[
+				"St",
+				"StartingPressure"
+			],
+			[
+				"Star",
+				"StartingPressure\t(Results_Plot.m)"
+			],
+			[
+				"Powe",
+				"PowerAbsorbed\t(Results_Plot.m)"
+			],
+			[
+				"Resu",
+				"Results"
+			],
+			[
+				"Results",
+				"Results_Struct"
+			],
+			[
+				"IVS",
+				"IVSIndex"
+			],
+			[
+				"Upda",
+				"UpdateSpeciesConcentrations_ConvergenceCheck"
+			],
+			[
+				"sp",
+				"sprintf\t(Evaluation_SingleVariableScan.m)"
+			],
+			[
+				"Initial",
+				"InitialValuesStruct"
+			],
+			[
+				"Test",
+				"TestIndex"
+			],
+			[
+				"Tes",
+				"TestIndex"
+			],
+			[
+				"S",
+				"ShowPlotElement"
+			],
+			[
+				"spr",
+				"sprintf\t(SolveBalanceEquations.m)"
+			],
+			[
+				"Dens",
+				"Density"
+			],
+			[
+				"React",
+				"ReactionLength"
+			],
+			[
+				"Reac",
+				"ReactionLength"
+			],
+			[
+				"Den",
+				"DensityFactor"
+			],
+			[
+				"Leng",
+				"LegendList"
+			],
+			[
+				"Rate",
+				"RateCoeff"
+			],
+			[
+				"Init",
+				"InitialTeStruct"
+			],
+			[
+				"InitialT",
+				"InitialTeStruct"
+			],
+			[
+				"Chec",
+				"CheckIllegalSystemConditions"
+			],
+			[
+				"Return",
+				"Return_Display_dict"
+			],
+			[
+				"Converg",
+				"ConvergencePrecision"
+			],
+			[
+				"Species",
+				"Species_I2E"
+			],
+			[
+				"Solve",
+				"SolveBalanceEquations"
+			],
+			[
+				"C",
+				"Controller"
+			],
+			[
+				"Con",
+				"Controller"
+			],
+			[
+				"Ionwal",
+				"IonWallLossZeros"
+			],
+			[
+				"Ion",
+				"IonicMFP"
+			],
+			[
+				"Conc",
+				"Conc_Rates"
+			],
+			[
+				"uB",
+				"uBohmVector"
+			],
+			[
+				"T",
+				"Te_column"
+			],
+			[
+				"Sp",
+				"SpeciesInterdependency"
+			],
+			[
+				"Speci",
+				"Species_I2E"
+			],
+			[
+				"Boo",
+				"Boolean_eC"
+			],
+			[
+				"Te",
+				"Te_row"
+			],
+			[
+				"e",
+				"e_index\t(Precalculate_SystemStruct.m)"
+			],
+			[
+				"En",
+				"Energy"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 329.0,
+		"last_filter": "print",
+		"selected_items":
+		[
+			[
+				"print",
+				"Print to HTML: print as HTML via browser"
+			],
+			[
+				"delete ",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"comment",
+				"Toggle Comment"
+			],
+			[
+				"package control",
+				"Package Control: Discover Packages"
+			],
+			[
+				"package control add",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"package control ",
+				"Package Control: Add Channel"
+			],
+			[
+				"package control rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"Align",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"ColorSchemeSelector: Select Color Scheme"
+			],
+			[
+				"sort",
+				"Sort Lines (Case Sensitive)"
+			],
+			[
+				"T",
+				"Typewriter: Scrolling Mode (Toggle)"
+			],
+			[
+				"typ",
+				"Typewriter: Scrolling Mode (Toggle)"
+			],
+			[
+				"",
+				"ColorSchemeSelector: Select Color Scheme"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"type",
+				"Typewriter: Scrolling Mode (Toggle)"
+			],
+			[
+				"packa add",
+				"Package Control: Add Channel"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"package co in",
+				"Package Control: Install Package"
+			],
+			[
+				"proje",
+				"Project: Save As"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"latex",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"package control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 629.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/thomasbody/Dropbox/Thesis/atomic1D"
+	],
+	"file_history":
+	[
+		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/fetch_adas_data.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/setup_fortran_programs.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/makefile",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/setup.py",
+		"/Users/thomasbody/.bash_profile",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/adas.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/fetch_adas_data",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/deconstruct/makefile",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/README",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/deconstruct/make",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/examples/radiation.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic/adf11.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/examples/epsilon_cooling2.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/trancfunc.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/src/xxdata_11/xxdata_11.for",
+		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic/__init__.py",
+		"/Users/Tom/Dropbox/Masters_Thesis/Misc_code/Ionisation_stages/atomic-master/src/helper_functions.for",
+		"/Users/Tom/Dropbox/Masters_Thesis/Misc_code/Ionisation_stages/atomic-master/src/xxdata_11.pyf",
+		"/Users/Tom/Dropbox/Masters_Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/adf11.py",
+		"/Users/Tom/Dropbox/Masters_Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/adf15.py",
+		"/Users/Tom/Dropbox/Masters_Thesis/Misc_code/Ionisation_stages/atomic-master/examples/epsilon_cooling2_callstructure.txt",
+		"/Users/Tom/Dropbox/Masters_Thesis/Misc_code/Ionisation_stages/atomic-master/src/xxdata_11/xxdata_11.for",
+		"/Users/Tom/Dropbox/Masters_Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/atomic_fullfile.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/src/helper_functions.for",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/epsilon_cooling2.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/adf11.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/time_dependent_rates.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/adf15.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/tests/test_electron_cooling.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/electron_cooling.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/tests/test_collisional_radiative.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/tests/test_atomic_data.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/collisional_radiative_equilibrium.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/ensemble_average.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/atomic_data.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/atomic_data.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/collisional_radiative.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/collisional_radiative.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/electron_cooling.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/pec.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/pec.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/radiation.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/radiation.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/tests/test_time_dependent_rates.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/time_dependent_rates.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/rate_coefficients.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/setup.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/fetch_adas_data",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/adas.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/__init__.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/__init__.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/tests/test_adf11.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/tests/test_abundance.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/atomic/tests/test_radiation.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/epsilon_cooling.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/epsilon_cooling.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/filter_construction.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/filter_ensemble_average.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/Kallenbach_2016_figure_3.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/Kallenbach_2016_figure_3.py.bak",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/Lz_ne_tau.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/profiles.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/radiation.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/rate_equations.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/examples/rate_equations_diffusion.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master/profileAtomic.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/Data_spec.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/Data_spec.f77",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/Data_spec.f90",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/Computational_techniques(final).py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/ionisation_stages.py",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/ionisation_stages/data/ionelec_szd#c.dat",
+		"/Users/Tom/Dropbox/Masters Thesis/Misc_code/ionisation_stages/ionisation_stages.py",
+		"/Users/Tom/Downloads/szd93#c_c0.dat",
+		"/Users/Tom/Downloads/szd93#c_c1.dat",
+		"/Users/Tom/Dropbox/Undergraduate Research/DivNH3_article/LaTeX/DivNH3.tex",
+		"/Users/Tom/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/F9F31F32-05D8-4DA7-867D-B39B03E1FABE/Experimental_ne.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/New_scans_plot_all.m",
+		"/Users/Tom/SD1D/modified-two-point.py",
+		"/Users/Tom/SD1D/README.md",
+		"/Users/Tom/BOUT-dev/include/boutmain.hxx",
+		"/Users/Tom/Desktop/LaTex_basic.tex",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Comp_scan_plot_reactions.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Comp_scan_plot_neutrals_nonorm.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Comp_scan_plot_ions_nonorm.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Power_scan_plot_surface.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Power_scan_plot_fractions.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Power_scan_plot_ions.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Power_scan_plot_neutrals.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Comp_scan_plot_ions.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Comp_scan_plot_fractions.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Comp_scan_plot_surface.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/OutputPlots/Comp_scan_plot_neutrals.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/New_scans_plot_neutrals.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/New_scans_plot_fractions.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/New_scans_plot_surface.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/New_scans_plot_ions.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/README",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/New_scans_plot_neutrals_new_normalisation.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/Run_single_variable_scan.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/New scan/Plotting_single_variable_scan.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/Misc functions/IonicPlotting.m",
+		"/Users/Tom/Dropbox/Undergraduate Research/MATLAB/Experiment/Functions/Plot_ScanStruct_Ion.m",
+		"/Users/Tom/Dropbox/Thesis/4.Aim/Experimental_aim_and_MAGPIE.tex",
+		"/Users/Tom/Dropbox/Thesis/5.PhysicsBasis/Introduction_to_Physics.tex",
+		"/Users/Tom/Dropbox/Thesis/5.PhysicsBasis/ThermalEnergyDistributions.tex",
+		"/Users/Tom/Dropbox/Thesis/5.PhysicsBasis/Sheaths.tex",
+		"/Users/Tom/Dropbox/Thesis/5.PhysicsBasis/Gas_Supply_Pumping.tex",
+		"/Users/Tom/Dropbox/Thesis/6.ChemistryBasis/Introduction_to_Chemistry.tex",
+		"/Users/Tom/Dropbox/Thesis/6.ChemistryBasis/Utilisation_of_crosssections.tex",
+		"/Users/Tom/Dropbox/Thesis/6.ChemistryBasis/HardShellApproximation.tex",
+		"/Users/Tom/Dropbox/Thesis/3.Introduction/Physics_of_fusion.tex",
+		"/Users/Tom/Dropbox/Thesis/3.Introduction/The_ITER_tokamak.tex",
+		"/Users/Tom/Dropbox/Thesis/3.Introduction/Impurity_seeding_for_fusion_devices.tex",
+		"/Users/Tom/Dropbox/Thesis/3.Introduction/Ammonia_production_due_to_seeding.tex",
+		"/Users/Tom/Dropbox/Thesis/4.Aim/Introduction_to_aim.tex",
+		"/Users/Tom/Dropbox/Thesis/4.Aim/Literature_review.tex",
+		"/Users/Tom/Dropbox/Thesis/2.Foreword/Foreword.tex",
+		"/Users/Tom/Dropbox/MATLAB/Misc functions/Results_Plot_Rates.m",
+		"/Users/Tom/Dropbox/MATLAB/Misc functions/Results_Plot_Rates_E.m",
+		"/Users/Tom/Desktop/Work for Thesis/MASsoft csv/Functions/Plot_Export2.m",
+		"/Users/Tom/Dropbox/MATLAB/Determine_Te_Dependance.m",
+		"/Users/Tom/Dropbox/MATLAB/Misc functions/Plot_Export.m",
+		"/Users/Tom/Dropbox/MATLAB/Misc functions/Multiple_LineScan.m",
+		"/Users/Tom/Dropbox/MATLAB/Misc functions/add_Scan.m",
+		"/Users/Tom/Dropbox/MATLAB/Misc functions/Results_Plot_Export.m",
+		"/Users/Tom/Dropbox/MATLAB/External methods for GUI_control/Solver/SolveBalanceEquations.m",
+		"/Users/Tom/Dropbox/MATLAB/External methods for GUI_control/Evaluation/Evaluation_SingleVariableScan.m"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 132.0,
+		"where_history":
+		[
+			"",
+			"/Users/Tom/Dropbox/Masters_Thesis/Misc_code/Ionisation_stages/atomic-master",
+			"/Users/Tom/Dropbox/Masters Thesis/Misc_code/Ionisation_stages/atomic-master",
+			"",
+			"/Users/Tom/Dropbox/MATLAB",
+			"/Users/Tom/Dropbox/MATLAB_Unitless",
+			"/Users/Tom/Dropbox/MATLAB Back-ups/MATLAB Unitless",
+			"/Users/Tom/Dropbox/MATLAB\\ Back-ups/MATLAB\\ Unitless",
+			"/Users/Tom/Dropbox/MATLAB",
+			"<current file>",
+			"/Users/Tom/Dropbox/MATLAB/Classes,/Users/Tom/Dropbox/MATLAB/Crosssections,/Users/Tom/Dropbox/MATLAB/Databases,/Users/Tom/Dropbox/MATLAB/External methods for GUI_control",
+			"/Users/Tom/Dropbox/MATLAB/External methods for GUI_control",
+			"/Users/Tom/Dropbox/MATLAB",
+			"/Users/Tom/Documents/MATLAB/GUI"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"element",
+			"adas.",
+			"open_adas",
+			"adas.",
+			"print_function",
+			"atomic",
+			"parameters",
+			"adf11_classes",
+			"_sniff_class",
+			"element",
+			"write",
+			"unspecified CX donor element",
+			"dlopen(",
+			"dlopen(/Users/thomasbody/Dropbox/Thesis/atomic/atomic/_xxdata_11.cpython-36m-darwin.so, 2)",
+			"~/",
+			"cd ",
+			"helper_open_file",
+			"no class name given in file",
+			"_read_xxdata_11",
+			"assertAlmostEqual",
+			"test_ionisation_stage_distribution_cold",
+			"assertAlmostEqual",
+			"xrange",
+			".iteritems",
+			"urllib.urlretrieve",
+			"urllib",
+			"print ",
+			"from atomic import atomicData",
+			"import atomic",
+			"xrange",
+			"import",
+			"iteritems",
+			"urllib",
+			"import urllib",
+			"urllib.urlopen",
+			"urllib.urlencode",
+			"urllib.urlencode()",
+			"HTMLParser",
+			"import HTMLParser",
+			"print ",
+			"elec_temp",
+			"rate",
+			"+",
+			"e+",
+			"+",
+			"'",
+			"FullWidthStyle",
+			"../Figures/",
+			".png",
+			"../Figures/",
+			"ColumnWidthStyle",
+			".eps",
+			"../Figures/",
+			".eps",
+			"../Figures/",
+			"ColumnWidthStyle",
+			"figure",
+			"reaction",
+			"FullWidthStyle",
+			"FullWidthStyle.Format = 'png';",
+			"reaction",
+			"Power_scan_reaction",
+			"reaction",
+			"figure",
+			"surface_figure",
+			"fractions_figure",
+			"ion_figure",
+			"neutral_figure",
+			"Composition",
+			"neutral",
+			"pDe",
+			"'H'",
+			"Column",
+			"fractions",
+			"fraction",
+			"New_scans",
+			"strep",
+			"production",
+			"(loss_sorting)",
+			"(production_sorting)",
+			"production",
+			"production_keys",
+			"max_Rate",
+			") ",
+			"max_NH3",
+			"CAR",
+			" ",
+			"CAR",
+			" ",
+			"Neutral_figure",
+			" clear(",
+			"if Close_after_save",
+			"close(",
+			"Style",
+			"ColumnWidthStyle",
+			"_figure",
+			"Reaction rate",
+			"Dominant",
+			"Dominant NH",
+			"surface",
+			"2",
+			"'LineStyle'",
+			"'LineStyle','--'",
+			"PlotFigure",
+			"Scan_values",
+			"X",
+			"co",
+			"Co",
+			"co",
+			"Co",
+			"co",
+			"Co",
+			"co",
+			"Co",
+			"co",
+			"Co",
+			"co",
+			"Co",
+			"co",
+			"Co",
+			"co",
+			",2",
+			"Density(:,",
+			"Species_I2E.index",
+			"surface",
+			"ions",
+			"semilogy(Scan_values",
+			"y"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"range",
+			".items",
+			"import atomicData",
+			"from atomic import atomic",
+			"range",
+			"items",
+			"urllib.request.urlopen",
+			"urllib.parse.urlencode",
+			"urllib.parse.urlencode()",
+			"Controller.Reaction_I2E",
+			"Controller.Species_I2E",
+			"[T,Y,R,E,M,Converged]",
+			"save('/Users/Tom/Dropbox/MATLAB_Unitless/Databases/",
+			"",
+			"Controller.Global.ExperimentUpdated",
+			"Controller.Solver.ExperimentUpdated",
+			"[T,Y,R,M,Converged] = SolveBalanceEquations",
+			"Results_SelectTest",
+			"Results_SelectIndependentVar",
+			"Results_ExportTable",
+			"Results_ExportStruct",
+			"Results_SaveTestIndex",
+			"Results_Plot_HoldDependentVar",
+			"Results_Plot_LookupShowPlotElement",
+			"Results_Plot_LookupShowDependentVar",
+			"GUI_7_DependentVar",
+			"Controller.Global.ExperimentUpdated",
+			"Controller.Solver.EvaluationStartTime",
+			"Controller.Global.ConvergenceCheck_GasSupplyIndex",
+			"Controller.Global.ConvergenceCheck_StartingPressureIndex",
+			"Controller.Global.ConvergenceCheck_PowerAbsorbedIndex",
+			"obj.Global.ConvergenceCheck_GasSupplyIndex",
+			"obj.Global.ConvergenceCheck_StartingPressureIndex",
+			"obj.Global.ConvergenceCheck_PowerAbsorbedIndex",
+			"Evaluation_AxesChange_Callback",
+			"Evaluation_Monitor_Callback",
+			"Evaluation_Mode_Callback",
+			"Evaluation_SaveTestIndex",
+			"Init_CheckDB",
+			"Global_EvaluationMode",
+			"Species_UpdateMode",
+			"Species_UpdateListbox",
+			"Species_DB_ReturnAttributes",
+			"Species_ReturnAttributes",
+			"Species_DB_AddElement",
+			"evaluate_PowerProduct",
+			"Reaction_UpdateMode",
+			"Reaction_UpdateListbox",
+			"Reaction_DB_ReturnAttributes",
+			"Reaction_DB_RemoveElement",
+			"Reaction_DB_Query",
+			"Reaction_DB_AddElement",
+			"Global_UpdateMode",
+			"Init_ResetDB_MAIN",
+			"Global_CheckMode",
+			"Init_CheckDB_MAIN",
+			"GasSupply_UpdatePanel",
+			"GasSupply_UpdateDictionary",
+			"GasSupply_DeleteElement",
+			"Evaluation_UpdateMode",
+			"Evaluation_PlotSolution_",
+			"Evaluation_PlotSolution",
+			"Evaluation_MonitorMultiple",
+			"Evaluation_SelectTest",
+			"Evaluation_CheckConvergence",
+			"EvaluateTab_Species",
+			"EvaluateTab_Results",
+			"EvaluateTab_Reactor",
+			"EvaluateTab_Reaction",
+			"EvaluateTab_OpenScreen",
+			"EvaluateTab_Experiment",
+			"EvaluateTab_Evaluation",
+			"Evaluate_SelectTest",
+			"Update_Evaluate_SelectTest",
+			"Save_GUI_6_SelectTest",
+			"Update_GUI_6_SelectTest",
+			"obj.H.GUI_6_SelectTestPanel",
+			"obj.H.GUI_6_SelectTest",
+			"obj.H.GUI_6_SelectParameter",
+			"EvaluateModeSelection",
+			"UpdateInputformMode",
+			"CrosssectionBuilder_Make",
+			"CheckInputformMode",
+			"UpdateInputformMode",
+			"UpdateEvaluationMode",
+			"ConvergenceCheck",
+			"GUI_3",
+			"GUI_5",
+			"GUI_4",
+			"GUI_XX",
+			"Controller.H.GUI_XX",
+			"ConvergenceParameter",
+			"Controller.H.GUI_6_CvgPara",
+			"Controller.H.GUI_6_CvgParaString",
+			"Avenir Next",
+			"Verdana",
+			"Controller",
+			"GUI",
+			"Controller",
+			"save('Databases/DB_MAIN'",
+			"save('Core/DB_MAIN'",
+			"'WindowStyle','Normal'",
+			"'WindowStyle','Modal'"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 33.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 114.0
+	},
+	"output.find_results":
+	{
+		"height": 669.0
+	},
+	"output.latextools":
+	{
+		"height": 136.0
+	},
+	"pinned_build_system": "",
+	"project": "atomic1D.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"GUI_control.m"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Dropbox/MATLAB/MATLAB.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 316.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
