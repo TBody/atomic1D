@@ -10,9 +10,10 @@ json_update:
 json:
 	@echo "Making JSON files from ADAS data files"
 	@echo ""
-
+	python build_json.py &> build_json_log.txt
 	@echo ""
 	@echo "JSON files successfully created"
+	@echo "see build_json_log.txt for build output and warnings/errors"
 	@echo ""
 	
 
@@ -65,6 +66,8 @@ clean_refetch:
 	rm -f src/xxdata_15.tar.gz
 	rm -f fetch_adas_data_log.txt
 	rm -f setup_fortran_programs_log.txt
+	rm -rf json_data
+	rm -f build_json_log.txt
 	@echo ""
 	@echo "atomic1D directory cleaned"
 	@echo ""

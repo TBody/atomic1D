@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"datatype_abbrevs"
+			],
+			[
+				"to",
+				"tolist"
+			],
+			[
+				"log",
+				"log_density"
+			],
+			[
 				"elem",
 				"element"
 			],
@@ -58,10 +70,6 @@
 			[
 				"read",
 				"readline"
-			],
-			[
-				"data",
-				"data_list"
 			],
 			[
 				"test",
@@ -312,10 +320,6 @@
 				"elseif\telseif"
 			],
 			[
-				"log",
-				"logical"
-			],
-			[
 				"Spe",
 				"Species_I2E"
 			],
@@ -510,17 +514,49 @@
 			[
 				"e",
 				"e_index\t(Precalculate_SystemStruct.m)"
-			],
-			[
-				"En",
-				"Energy"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"contents": "# Program name: atomic1D/build_json.py\n# Author: Thomas Body\n# Author email: tajb500@york.ac.uk\n# Date of creation: 12 July 2017\n\nimport json\n\ndef check_cwd():\n    print(\"Running \")\nif os.path.isdir('adas_data')\n    print('Found a ')\n\n\nos.listdir(os.getcwd()+\"/adas_data\"\n\n# Use fortran helper functions to read .dat file into ret.\n# Key to inputs (from xxdata_11.pdf)\n    # type  | name   | description\n    # (i*4) | iunit  | unit to which input file is allocated\n    # (i*4) | iclass | class of data (numerical code) - see table below\n    # ----------------------------------------------------------\n    # use defaults (set in parameters) for everything below this\n    # ----------------------------------------------------------\n    # (i*4) | isdimd | maximum number of (sstage, parent, base)\n    #       |        | blocks in isonuclear master files\n    # (i*4) | iddimd | maximum number of dens values in \n    #       |        | isonuclear master files\n    # (i*4) | itdimd | maximum number of temp values in \n    #       |        | isonuclear master files\n    # (i*4) | ndptnl | maximum level of partitions\n    # (i*4) | ndptn  | maximum no. of partitions in one level\n    # (i*4) | ndptnc | maximum no. of components in a partition\n    # (i*4) | ndcnct | maximum number of elements in connection vector\n\n# Supported adf11 data classes.  See src/xxdata_11/xxdata_11.for for all the\n# twelve classes.\nadf11_classes = {\n    'acd' : 1, # recombination coefficients\n    'scd' : 2, # ionisation coefficients\n    'prb' : 4, # continuum radiation power\n    'plt' : 8, # line radiation power\n    'prc' : 5, # charge-exchange recombination radiation\n    'ecd' : 12 # effective ionisation potential\n}\n\ndatatype_abbrevs = {\n        'ionisation' : 'scd',\n        'recombination' : 'acd',\n        'continuum_power' : 'prb',\n        'line_power' : 'plt',\n        'cx_power' : 'prc',\n        'ionisation_potential' : 'ecd',\n}\n\n# Invert the mapping of datatype_abbrevs\ninv_datatype_abbrevs = {v: k for k, v in datatype_abbrevs.items()}\n\n# Some hard coded parameters to run xxdata_11.for routine.  The values have\n# been take from src/xxdata_11/test.for, and should be OK for all files.\nparameters = {\n    'isdimd' : 200,\n    'iddimd' : 40,\n    'itdimd' : 50,\n    'ndptnl' : 4,\n    'ndptn' : 128,\n    'ndptnc' : 256,\n    'ndcnct' : 100\n}\n\n#<<FORTRAN HELPERS GO IN HERE>>\n\n# Extract information from ret.\niz0, is1min, is1max, nptnl, nptn, nptnc, iptnla, iptna, iptnca, ncnct,\\\nicnctv, iblmx, ismax, dnr_ele, dnr_ams, isppr, ispbr, isstgr, idmax,\\\nitmax, ddens, dtev, drcof, lres, lstan, lptn = ret\n\n# Key to outputs (from xxdata_11.pdf)\n    # type   | name       | description\n    # (i*4)  | iz0        | nuclear charge\n    # (i*4)  | is1min     | minimum ion charge + 1\n    #        |            | (generalised to connection vector index)\n    # (i*4)  | is1max     | maximum ion charge + 1\n    #        |            | (note excludes the bare nucleus)\n    #        |            | (generalised to connection vector index and excludes\n    #        |            | last one which always remains the bare nucleus)\n    # (i*4)  | nptnl      | number of partition levels in block\n    # (i*4)  | nptn()     | number of partitions in partition level\n    #        |            | 1st dim: partition level\n    # (i*4)  | nptnc(,)   | number of components in partition\n    #        |            | 1st dim: partition level\n    #        |            | 2nd dim: member partition in partition level\n    # (i*4)  | iptnla()   | partition level label (0=resolved root,1=\n    #        |            | unresolved root)\n    #        |            | 1st dim: partition level index\n    # (i*4)  | iptna(,)   | partition member label (labelling starts at 0)\n    #        |            | 1st dim: partition level index\n    #        |            | 2nd dim: member partition index in partition level\n    # (i*4)  | iptnca(,,) | component label (labelling starts at 0)\n    #        |            | 1st dim: partition level index\n    #        |            | 2nd dim: member partition index in partition level\n    #        |            | 3rd dim: component index of member partition\n    # (i*4)  | ncnct      | number of elements in connection vector\n    # (i*4)  | icnctv()   | connection vector of number of partitions\n    #        |            | of each superstage in resolved case\n    #        |            | including the bare nucleus\n    #        |            | 1st dim: connection vector index\n    # (i*4)  | iblmx      | number of (sstage, parent, base)\n    #        |            | blocks in isonuclear master file\n    # (i*4)  | ismax      | number of charge states\n    #        |            | in isonuclear master file\n    #        |            | (generalises to number of elements in\n    #        |            |  connection vector)\n    # (c*12) | dnr_ele    | CX donor element name for iclass = 3 or 5\n    #        |            | (blank if unset)\n    # (r*8)  | dnr_ams    | CX donor element mass for iclass = 3 or 5\n    #        |            | (0.0d0 if unset)\n    # (i*4)  | isppr()    | 1st (parent) index for each partition block\n    #        |            | 1st dim: index of (sstage, parent, base)\n    #        |            |          block in isonuclear master file\n    # (i*4)  | ispbr()    | 2nd (base) index for each partition block\n    #        |            | 1st dim: index of (sstage, parent, base)\n    #        |            |          block in isonuclear master file\n    # (i*4)  | isstgr()   | s1 for each resolved data block\n    #        |            | (generalises to connection vector index)\n    #        |            | 1st dim: index of (sstage, parent, base)\n    #        |            |          block in isonuclear master file\n    # (i*4)  | idmax      | number of dens values in\n    #        |            | isonuclear master files\n    # (i*4)  | itmax      | number of temp values in\n    #        |            | isonuclear master files\n    # (r*8)  | ddens()    | log10(electron density(cm-3)) from adf11\n    # (r*8)  | dtev()     | log10(electron temperature (eV) from adf11\n    # (r*8)  | drcof(,,)  | if(iclass <=9):\n    #        |            | \tlog10(coll.-rad. coefft.) from\n    #        |            | \tisonuclear master file\n    #        |            | if(iclass >=10):\n    #        |            | \tcoll.-rad. coefft. from\n    #        |            | \tisonuclear master file\n    #        |            | 1st dim: index of (sstage, parent, base)\n    #        |            | \t\t block in isonuclear master file\n    #        |            | 2nd dim: electron temperature index\n    #        |            | 3rd dim: electron density index\n    # (l*4)  | lres       | = .true. => partial file\n    #        |            | = .false. => not partial file\n    # (l*4)  | lstan      | = .true. => standard file\n    #        |            | = .false. => not standard file\n    # (l*4)  | lptn       | = .true. => partition block present\n    #        |            | = .false. => partition block not present\n\n# Make a new blank dictionary, data_dict\ndata_dict = {}\n# Save data to data_dict\ndata_dict['charge']                  = iz0 #Nuclear charge\ndata_dict['log_density']             = ddens[:idmax]\ndata_dict['log_temperature']         = dtev[:itmax]\ndata_dict['number_of_charge_states'] = ismax\ndata_dict['log_coeff']               = drcof[:ismax, :itmax, :idmax]\n\n# <<READ THESE ATTRIBUTES FROM FILENAME>>\n# data_dict['class'] = 'scd'\n# data_dict['element'] = 'c'\n# data_dict['name'] = '/Users/thomasbody/Dropbox/Thesis/atomic/adas_data/scd96_c.dat'\n\n# convert everything to SI + eV units\ndata_dict['log_density'] += 6 # log(cm^-3) = log(10^6 m^-3) = 6 + log(m^-3)\n# N.b. the ecd (ionisation potential) class is already in eV units.\nif data_dict['class'] != 'ecd':\n    data_dict['log_coeff'] -= 6 # log(m^3/s) = log(10^-6 m^3/s) = -6 + log(m^3/s)\nelse:\n    data_dict['log_coeff'] = np.log10(data_dict['log_coeff'][1:])\n\n# jsonify the numpy arrays\nimport numpy as np\n# copy data to a new dictionary (data_dict_jsonified) and then edit that one\nfrom copy import deepcopy\ndata_dict_jsonified = deepcopy(data_dict)\ndata_dict_jsonified['log_density']     = data_dict_jsonified['log_density'].tolist()\ndata_dict_jsonified['log_temperature'] = data_dict_jsonified['log_temperature'].tolist()\ndata_dict_jsonified['log_coeff']       = data_dict_jsonified['log_coeff'].tolist()\n\n# <<Use original filename, except with .json instead of .dat extension>>\nwith open('data_dict.json','w') as fp:\n\tjson.dump(data_dict_jsonified, fp, sort_keys=True, indent=4)\n\n\n# Full table of ADF11 types (for reference)\n    # class index | type | GCR data content\n    # ------------\\------\\--------------------------------\n    # 1           | acd  | \trecombination coeffts\n    # 2           | scd  | \tionisation coeffts\n    # 3           | ccd  | \tCX recombination coeffts\n    # 4           | prb  | \trecomb/brems power coeffts\n    # 5           | prc  | \tCX power coeffts\n    # 6           | qcd  | \tbase meta. coupl. coeffts\n    # 7           | xcd  | \tparent meta. coupl. coeffts\n    # 8           | plt  | \tlow level line power coeffts\n    # 9           | pls  | \trepresent. line power coefft\n    # 10          | zcd  | \teffective charge\n    # 11          | ycd  | \teffective squared charge\n    # 12          | ecd  | \teffective ionisation potential\n\nif __name__ == '__main__':\n    print('>> build_json.py called')\n    print('\\nConverting .dat files to .json files\\n')\n\n\n\n    print('\\n>> setup_fortran_programs.py exited')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+			"file": "build_json.py",
+			"file_size": 8773,
+			"file_write_time": 131444336570000000,
+			"settings":
+			{
+				"buffer_size": 9503,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "setup_fortran_programs.py",
+			"settings":
+			{
+				"buffer_size": 2192,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thomasbody/Dropbox/Thesis/atomic/atomic/atomic_data.py",
+			"settings":
+			{
+				"buffer_size": 11245,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thomasbody/Dropbox/Thesis/atomic/atomic/adf11.py",
+			"settings":
+			{
+				"buffer_size": 5209,
+				"line_ending": "Unix"
+			}
+		}
 	],
-	"build_system": "",
+	"build_system": "Packages/Markdown Preview/Markdown.sublime-build",
 	"build_system_choices":
 	[
 		[
@@ -570,15 +606,87 @@
 				"Packages/LaTeXTools/LaTeX.sublime-build",
 				""
 			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/Markdown Preview/Markdown.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Markdown Preview/Markdown.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
 		]
 	],
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 329.0,
-		"last_filter": "print",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Markdown",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
 			[
 				"print",
 				"Print to HTML: print as HTML via browser"
@@ -713,10 +821,16 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/thomasbody/Dropbox/Thesis/atomic1D"
+		"/Users/thomasbody/Dropbox/Thesis/atomic1D",
+		"/Users/thomasbody/Dropbox/Thesis/atomic1D/src/xxdata_11"
 	],
 	"file_history":
 	[
+		"/Users/thomasbody/Dropbox/Thesis/atomic1D/demo_json.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic1D/build_json.py",
+		"/Users/thomasbody/Dropbox/Thesis/atomic1D/README.md",
+		"/Users/thomasbody/Dropbox/Thesis/atomic1D/data2.json",
+		"/Users/thomasbody/Dropbox/Thesis/atomic1D/data.json",
 		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/fetch_adas_data.py",
 		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/setup_fortran_programs.py",
 		"/Users/thomasbody/Dropbox/Thesis/atomic/atomic1D/makefile",
@@ -839,16 +953,11 @@
 		"/Users/Tom/Dropbox/MATLAB/Misc functions/Results_Plot_Rates_E.m",
 		"/Users/Tom/Desktop/Work for Thesis/MASsoft csv/Functions/Plot_Export2.m",
 		"/Users/Tom/Dropbox/MATLAB/Determine_Te_Dependance.m",
-		"/Users/Tom/Dropbox/MATLAB/Misc functions/Plot_Export.m",
-		"/Users/Tom/Dropbox/MATLAB/Misc functions/Multiple_LineScan.m",
-		"/Users/Tom/Dropbox/MATLAB/Misc functions/add_Scan.m",
-		"/Users/Tom/Dropbox/MATLAB/Misc functions/Results_Plot_Export.m",
-		"/Users/Tom/Dropbox/MATLAB/External methods for GUI_control/Solver/SolveBalanceEquations.m",
-		"/Users/Tom/Dropbox/MATLAB/External methods for GUI_control/Evaluation/Evaluation_SingleVariableScan.m"
+		"/Users/Tom/Dropbox/MATLAB/Misc functions/Plot_Export.m"
 	],
 	"find":
 	{
-		"height": 33.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -876,6 +985,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"= ",
+			"c",
+			"C",
+			"c",
+			"C",
+			"c",
+			"c ",
+			", ",
+			"parameters",
+			"c ",
+			":",
+			",",
+			"data",
+			"data2",
+			"data",
+			"data2",
+			"data",
+			"log_density",
+			"d",
 			"element",
 			"adas.",
 			"open_adas",
@@ -984,26 +1112,7 @@
 			"X",
 			"co",
 			"Co",
-			"co",
-			"Co",
-			"co",
-			"Co",
-			"co",
-			"Co",
-			"co",
-			"Co",
-			"co",
-			"Co",
-			"co",
-			"Co",
-			"co",
-			",2",
-			"Density(:,",
-			"Species_I2E.index",
-			"surface",
-			"ions",
-			"semilogy(Scan_values",
-			"y"
+			"co"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1124,14 +1233,134 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "build_json.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9503,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2534,
+								2534
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 931.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "setup_fortran_programs.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2192,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2041,
+								1988
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 159.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/thomasbody/Dropbox/Thesis/atomic/atomic/atomic_data.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11245,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3398,
+								3398
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1652.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/thomasbody/Dropbox/Thesis/atomic/atomic/adf11.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								967,
+								582
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 33.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -1162,7 +1391,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 114.0
+		"height": 270.0
 	},
 	"output.find_results":
 	{
@@ -1172,11 +1401,15 @@
 	{
 		"height": 136.0
 	},
+	"output.markdown":
+	{
+		"height": 160.0
+	},
 	"pinned_build_system": "",
 	"project": "atomic1D.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1221,7 +1454,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 316.0,
 	"status_bar_visible": true,
 	"template_settings":
