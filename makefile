@@ -10,6 +10,7 @@ json_update:
 json:
 	@echo "Making JSON files from ADAS data files"
 	@echo ""
+	mkdir -p json_data
 	python build_json.py &> build_json_log.txt
 	@echo ""
 	@echo "JSON files successfully created"
