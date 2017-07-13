@@ -94,7 +94,10 @@ def read_xxdata_11(file_full_path,file_class):
     #         file_class    -> the adf11 class (i.e. 'acd', 'scd', etc)
 
     # <<will need to find the correct path for _xxdata_11 - may be either the version in atomic or in src>>
-    from src import _xxdata_11
+    
+    # import _xxdata_11
+    from atomic import _xxdata_11
+    # from src import _xxdata_11
 
     # Some hard coded parameters to run xxdata_11.for routine.  The values have
     # been take from src/xxdata_11/test.for, and should be OK for all files.
@@ -132,7 +135,7 @@ def read_xxdata_11(file_full_path,file_class):
 
     return raw_return_value
 
-def extract_data_dict(raw_return_value,file_class,file_element,file_full_path)
+def extract_data_dict(raw_return_value,file_class,file_element,file_full_path):
     # Based on _convert_to_dictionary method of adf11.py
     # Extract information from ret.
     iz0, is1min, is1max, nptnl, nptn, nptnc, iptnla, iptna, iptnca, ncnct,\
@@ -241,7 +244,7 @@ def extract_data_dict(raw_return_value,file_class,file_element,file_full_path)
 
     return data_dict
 
-def data_dict_types(data_dict)
+def data_dict_types(data_dict):
     # Print out the type of each element in data_dict (helps to identify which ones need to be jsonified)
     for key, element in data_dict.items():
         print("data key: {:30} data type: {:30}".format(key,str(type(element))))
@@ -286,7 +289,7 @@ def retrive_from_JSON(file_name):
     with open(file_name,'r') as fp:
         data_dict = json.load(fp)
 
-    if set(data_dict.keys()) != {'charge','class','element', 'help','log_coeff','log_density','log_temperature','name','number_of_charge_states'}
+    if set(data_dict.keys()) != {'charge','class','element', 'help','log_coeff','log_density','log_temperature','name','number_of_charge_states'}:
         warn('Imported JSON file {} does not have the expected set of keys - could result in an error'.format(file_name))
 
     # print(data_dict['help'])
