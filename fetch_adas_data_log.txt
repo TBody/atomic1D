@@ -1,0 +1,93 @@
+>> fetch_adas_data.py called
+
+Downloading ADF11 and ADF15 files from OpenADAS
+Database url: http://open.adas.ac.uk/
+
+Element-data will be downloaded for
+carbon (year = 1996)
+nitrogen (year = 1996)
+
+Downloading files - please wait
+
+zcd96_c.dat
+prc96_c.dat
+ccd96_c.dat
+plt96_c.dat
+scd96_c.dat
+ecd96_c.dat
+acd96_c.dat
+ycd96_c.dat
+pls96_c.dat
+prb96_c.dat
+zcd96_n.dat
+plt96_n.dat
+scd96_n.dat
+ecd96_n.dat
+acd96_n.dat
+ycd96_n.dat
+prb96_n.dat
+pec96#c_bnd#c5.dat
+pec93#c_pjr#c5.dat
+pec96#c_pju#c5.dat
+pec96#c_pjr#c5.dat
+pec96#c_pjr#c4.dat
+pec96#c_pju#c4.dat
+pec93#c_pjr#c4.dat
+pec96#c_pjr#c3.dat
+pec96#c_pju#c3.dat
+pec96#c_pju#c2.dat
+pec96#c_pjr#c2.dat
+pec93#c_llu#c3.dat
+pec93#c_pjr#c3.dat
+ionelec_pec#c3.dat
+pec93#c_pju#c3.dat
+pec93#c_llr#c3.dat
+pec93#c_pju#c2.dat
+pec93#c_llr#c2.dat
+pec93#c_pjr#c2.dat
+ionelec_pec#c2.dat
+pec93#c_llu#c2.dat
+ionelec_pec#c2x.dat
+pec96#c_pjr#c1.dat
+pec96#c_pju#c1.dat
+pec93#c_llu#c1.dat
+pec93#c_pju#c1.dat
+pec93#c_llr#c1.dat
+pec93#c_pjr#c1.dat
+pec93#c_llr#c0.dat
+pec93#c_pjr#c0.dat
+pec93#c_pju#c0.dat
+pec93#c_llu#c0.dat
+ionelec_pec#c1.dat
+pec96#c_pjr#c0.dat
+pec96#c_pju#c0.dat
+pec96#c_vsu#c2.dat
+pec96#c_vsr#c2.dat
+pec96#c_vsr#c1.dat
+pec96#c_vsu#c1.dat
+pec96#c_vsr#c0.dat
+pec96#c_vsu#c0.dat
+pec96#n_pju#n6.dat
+pec96#n_pjr#n6.dat
+pec96#n_pjr#n5.dat
+pec96#n_pju#n5.dat
+pec96#n_pju#n4.dat
+pec96#n_pjr#n4.dat
+pec93#n_llu#n4.dat
+pec93#n_llr#n4.dat
+pec96#n_pju#n3.dat
+pec96#n_pjr#n3.dat
+pec96#n_pjr#n2.dat
+pec96#n_pju#n2.dat
+pec96#n_pjr#n1.dat
+pec96#n_pju#n1.dat
+pec96#n_pjr#n0.dat
+pec96#n_pju#n0.dat
+pec96#n_vsu#n1.dat
+pec96#n_vsu#n2.dat
+pec96#n_vsu#n0.dat
+Downloading xxdata_11.tar.gz
+Extracting xxdata_11.tar.gz
+Downloading xxdata_15.tar.gz
+Extracting xxdata_15.tar.gz
+>> fetch_adas_data.py exited without error

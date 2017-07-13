@@ -1,0 +1,1016 @@
+>> setup_fortran_programs.py called
+
+Building fortran helper functions in src
+
+running build_ext
+running build_src
+build_src
+building extension "atomic._xxdata_11" sources
+f2py options: []
+f2py: ./src/xxdata_11.pyf
+Reading fortran codes...
+	Reading file './src/xxdata_11.pyf' (format:free)
+Post-processing...
+	Block: _xxdata_11
+			Block: xxdata_11
+			Block: helper_open_file
+			Block: helper_close_file
+Post-processing (stage 2)...
+Building modules...
+	Building module "_xxdata_11"...
+		Constructing wrapper function "xxdata_11"...
+		  iz0,is1min,is1max,nptnl,nptn,nptnc,iptnla,iptna,iptnca,ncnct,icnctv,iblmx,ismax,dnr_ele,dnr_ams,isppr,ispbr,isstgr,idmax,itmax,ddens,dtev,drcof,lres,lstan,lptn = xxdata_11(iunit,iclass,isdimd,iddimd,itdimd,ndptnl,ndptn,ndptnc,ndcnct)
+		Constructing wrapper function "helper_open_file"...
+		  iunit = helper_open_file(filename)
+		Constructing wrapper function "helper_close_file"...
+		  helper_close_file(iunit)
+	Wrote C/API module "_xxdata_11" to file "./src/_xxdata_11module.c"
+  adding 'build/src.macosx-10.7-x86_64-3.6/fortranobject.c' to sources.
+  adding 'build/src.macosx-10.7-x86_64-3.6' to include_dirs.
+creating build
+creating build/src.macosx-10.7-x86_64-3.6
+copying /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.c -> build/src.macosx-10.7-x86_64-3.6
+copying /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.h -> build/src.macosx-10.7-x86_64-3.6
+building extension "atomic._xxdata_15" sources
+f2py options: []
+f2py: ./src/xxdata_15.pyf
+Reading fortran codes...
+	Reading file './src/xxdata_15.pyf' (format:free)
+Post-processing...
+	Block: _xxdata_15
+			Block: xxdata_15
+			Block: helper_open_file
+			Block: helper_close_file
+Post-processing (stage 2)...
+Building modules...
+	Building module "_xxdata_15"...
+		Constructing wrapper function "xxdata_15"...
+		  iz0,is,is1,esym,nptnl,nptn,nptnc,iptnla,iptna,iptnca,ncnct,icnctv,ncptn_stack,cptn_stack,lres,lptn,lcmt,lsup,nbsel,isela,cwavel,cfile,ctype,cindm,wavel,ispbr,isppr,isstgr,iszr,ita,ida,teta,teda,pec,pec_max,ncmt_stack,cmt_stack = xxdata_15(iunit,dsname,nstore,ntdim,nddim,ndptnl,ndptn,ndptnc,ndcnct,ndstack,ndcmt)
+		Constructing wrapper function "helper_open_file"...
+		  iunit = helper_open_file(filename)
+		Constructing wrapper function "helper_close_file"...
+		  helper_close_file(iunit)
+	Wrote C/API module "_xxdata_15" to file "./src/_xxdata_15module.c"
+  adding 'build/src.macosx-10.7-x86_64-3.6/fortranobject.c' to sources.
+  adding 'build/src.macosx-10.7-x86_64-3.6' to include_dirs.
+build_src: building npy-pkg config files
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+customize Gnu95FCompiler
+Found executable /opt/local/bin/gfortran
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build_ext
+building 'atomic._xxdata_11' extension
+compiling C sources
+C compiler: gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -I/Users/thomasbody/anaconda/include -arch x86_64 -I/Users/thomasbody/anaconda/include -arch x86_64
+
+creating build/temp.macosx-10.7-x86_64-3.6
+creating build/temp.macosx-10.7-x86_64-3.6/src
+creating build/temp.macosx-10.7-x86_64-3.6/build
+creating build/temp.macosx-10.7-x86_64-3.6/build/src.macosx-10.7-x86_64-3.6
+compile options: '-Ibuild/src.macosx-10.7-x86_64-3.6 -I/Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include -I/Users/thomasbody/anaconda/include/python3.6m -c'
+gcc: ./src/_xxdata_11module.c
+In file included from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1788:0,
+                 from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                 from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from build/src.macosx-10.7-x86_64-3.6/fortranobject.h:13,
+                 from ./src/_xxdata_11module.c:19:
+/Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by " \
+  ^~~~~~~
+./src/_xxdata_11module.c:137:12: warning: 'f2py_size' defined but not used [-Wunused-function]
+ static int f2py_size(PyArrayObject* var, ...)
+            ^~~~~~~~~
+gcc: build/src.macosx-10.7-x86_64-3.6/fortranobject.c
+In file included from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1788:0,
+                 from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                 from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from build/src.macosx-10.7-x86_64-3.6/fortranobject.h:13,
+                 from build/src.macosx-10.7-x86_64-3.6/fortranobject.c:2:
+/Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by " \
+  ^~~~~~~
+build/src.macosx-10.7-x86_64-3.6/fortranobject.c: In function 'format_def':
+build/src.macosx-10.7-x86_64-3.6/fortranobject.c:139:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         if (size < sizeof(notalloc)) {
+                  ^
+compiling Fortran sources
+Fortran f77 compiler: /opt/local/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -m64 -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /opt/local/bin/gfortran -Wall -g -fno-second-underscore -m64 -fPIC -O3 -funroll-loops
+Fortran fix compiler: /opt/local/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -m64 -fPIC -O3 -funroll-loops
+creating build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11
+compile options: '-Ibuild/src.macosx-10.7-x86_64-3.6 -I/Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include -I/Users/thomasbody/anaconda/include/python3.6m -c'
+gfortran:f77: ./src/xxdata_11/xxdata_11.for
+f951: Warning: Nonconforming tab character in column 1 of line 368 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 369 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 372 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 373 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 374 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 375 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 381 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 382 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 383 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 384 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 385 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 386 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 387 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 388 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 389 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 390 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 391 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 392 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 393 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 394 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 395 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 396 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 401 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 402 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 403 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 404 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 405 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 406 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 407 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 408 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 409 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 410 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 411 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 412 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 413 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 414 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 415 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 416 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 417 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 426 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 427 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 428 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 488 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 489 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 499 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 511 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 512 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 513 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 514 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 515 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 516 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 525 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 526 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 527 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 528 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 529 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 530 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 531 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 532 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 534 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 540 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 541 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 542 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 543 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 544 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 548 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 562 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 564 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 585 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 633 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 646 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 662 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 663 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 670 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 675 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 680 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 681 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 682 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 687 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 690 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 693 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 694 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 695 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 696 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 697 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 698 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 699 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 700 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 701 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 702 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 703 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 704 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 710 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 712 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 714 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 726 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 730 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 742 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 743 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 744 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 745 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 746 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 752 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 778 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 779 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 780 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 783 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 784 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 785 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 791 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 793 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 794 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 795 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 796 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 801 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 802 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 803 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 804 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 806 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 807 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 808 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 809 [-Wtabs]
+./src/xxdata_11/xxdata_11.for:494:42:
+
+        elseif(iclass_file.ne.iclass) then
+                                          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxdata_11.for:497:69:
+
+      &                            ' does not match iclass = ',iclass
+                                                                     1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxdata_11.for:547:21:
+
+            ncnct = 0
+                     1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxdata_11.for:691:49:
+
+      &           (cstrgl(46:47). eq. 'md')) then
+                                                 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxdata_11.for:698:25:
+
+            continue
+                         1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxdata_11.for:703:18:
+
+     endif
+                  1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxdata_11.for:727:13:
+
+        endif
+             1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+gfortran:f77: ./src/xxdata_11/xxrptn.for
+f951: Warning: Nonconforming tab character in column 1 of line 189 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 190 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 191 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 192 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 193 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 194 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 196 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 197 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 198 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 199 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 202 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 203 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 204 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 205 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 207 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 208 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 210 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 213 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 216 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 217 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 229 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 231 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 232 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 234 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 235 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 236 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 237 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 238 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 239 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 242 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 243 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 244 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 245 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 246 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 247 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 255 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 256 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 264 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 265 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 267 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 269 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 272 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 273 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 274 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 276 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 277 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 278 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 281 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 282 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 283 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 284 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 298 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 300 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 302 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 306 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 307 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 309 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 310 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 311 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 312 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 313 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 315 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 317 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 318 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 320 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 330 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 331 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 333 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 334 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 336 [-Wtabs]
+./src/xxdata_11/xxrptn.for:177:13:
+
+        enddo
+             1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxrptn.for:206:17:
+
+      &              '      '//cstrg(ifirst:ilast)
+                 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxrptn.for:207:38:
+
+     ncharf=nchari+ilast-ifirst+2
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_11/xxrptn.for:208:0:
+
+     cptna(nptnl)(nchari+1: ncharf) = ' '//cstrg(ifirst:ilast)
+ 
+Warning: 'nchari' may be used uninitialized in this function [-Wmaybe-uninitialized]
+gfortran:f77: ./src/xxdata_11/i4unit.for
+gfortran:f77: ./src/xxdata_11/i4fctn.for
+f951: Warning: Nonconforming tab character in column 2 of line 127 [-Wtabs]
+gfortran:f77: ./src/xxdata_11/xxword.for
+gfortran:f77: ./src/xxdata_11/xxcase.for
+gfortran:f77: ./src/xxdata_11/xfelem.for
+gfortran:f77: ./src/xxdata_11/xxslen.for
+gfortran:f77: ./src/helper_functions.for
+/opt/local/bin/gfortran -Wall -g -m64 -Wall -g -undefined dynamic_lookup -bundle build/temp.macosx-10.7-x86_64-3.6/src/_xxdata_11module.o build/temp.macosx-10.7-x86_64-3.6/build/src.macosx-10.7-x86_64-3.6/fortranobject.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxdata_11.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxrptn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/i4unit.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/i4fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxword.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxcase.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xfelem.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxslen.o build/temp.macosx-10.7-x86_64-3.6/src/helper_functions.o -L/opt/local/lib/gcc6/gcc/x86_64-apple-darwin16/6.3.0 -L/Users/thomasbody/anaconda/lib -lgfortran -o atomic/_xxdata_11.cpython-36m-darwin.so
+building 'atomic._xxdata_15' extension
+compiling C sources
+C compiler: gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -I/Users/thomasbody/anaconda/include -arch x86_64 -I/Users/thomasbody/anaconda/include -arch x86_64
+
+compile options: '-Ibuild/src.macosx-10.7-x86_64-3.6 -I/Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include -I/Users/thomasbody/anaconda/include/python3.6m -c'
+gcc: ./src/_xxdata_15module.c
+In file included from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1788:0,
+                 from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                 from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from build/src.macosx-10.7-x86_64-3.6/fortranobject.h:13,
+                 from ./src/_xxdata_15module.c:19:
+/Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by " \
+  ^~~~~~~
+./src/_xxdata_15module.c:137:12: warning: 'f2py_size' defined but not used [-Wunused-function]
+ static int f2py_size(PyArrayObject* var, ...)
+            ^~~~~~~~~
+gcc: build/src.macosx-10.7-x86_64-3.6/fortranobject.c
+In file included from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1788:0,
+                 from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                 from /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from build/src.macosx-10.7-x86_64-3.6/fortranobject.h:13,
+                 from build/src.macosx-10.7-x86_64-3.6/fortranobject.c:2:
+/Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by " \
+  ^~~~~~~
+build/src.macosx-10.7-x86_64-3.6/fortranobject.c: In function 'format_def':
+build/src.macosx-10.7-x86_64-3.6/fortranobject.c:139:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         if (size < sizeof(notalloc)) {
+                  ^
+compiling Fortran sources
+Fortran f77 compiler: /opt/local/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -m64 -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /opt/local/bin/gfortran -Wall -g -fno-second-underscore -m64 -fPIC -O3 -funroll-loops
+Fortran fix compiler: /opt/local/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -m64 -fPIC -O3 -funroll-loops
+creating build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15
+compile options: '-Ibuild/src.macosx-10.7-x86_64-3.6 -I/Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/core/include -I/Users/thomasbody/anaconda/include/python3.6m -c'
+gfortran:f77: ./src/xxdata_15/xxdata_15.for
+./src/xxdata_15/xxdata_15.for:516:0:
+
+                    if(i.ne.iptnl) then
+ 
+Warning: 'iptnl' may be used uninitialized in this function [-Wmaybe-uninitialized]
+gfortran:f77: ./src/xxdata_15/xxrptn.for
+f951: Warning: Nonconforming tab character in column 1 of line 189 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 190 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 191 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 192 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 193 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 194 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 196 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 197 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 198 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 199 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 202 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 203 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 204 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 205 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 207 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 208 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 210 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 213 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 216 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 217 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 229 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 231 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 232 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 234 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 235 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 236 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 237 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 238 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 239 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 242 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 243 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 244 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 245 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 246 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 247 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 255 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 256 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 264 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 265 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 267 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 269 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 272 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 273 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 274 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 276 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 277 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 278 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 281 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 282 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 283 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 284 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 298 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 300 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 302 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 306 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 307 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 309 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 310 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 311 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 312 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 313 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 315 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 317 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 318 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 320 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 330 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 331 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 333 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 334 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 336 [-Wtabs]
+./src/xxdata_15/xxrptn.for:177:13:
+
+        enddo
+             1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxrptn.for:206:17:
+
+      &              '      '//cstrg(ifirst:ilast)
+                 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxrptn.for:207:38:
+
+     ncharf=nchari+ilast-ifirst+2
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxrptn.for:208:0:
+
+     cptna(nptnl)(nchari+1: ncharf) = ' '//cstrg(ifirst:ilast)
+ 
+Warning: 'nchari' may be used uninitialized in this function [-Wmaybe-uninitialized]
+gfortran:f77: ./src/xxdata_15/xxmkrp.for
+f951: Warning: Nonconforming tab character in column 1 of line 132 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 133 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 134 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 135 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 136 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 139 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 142 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 143 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 144 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 154 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 155 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 156 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 157 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 160 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 163 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 164 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 165 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 169 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 170 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 176 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 178 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 179 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 180 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 181 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 182 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 183 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 184 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 185 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 186 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 187 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 188 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 191 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 192 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 193 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 194 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 197 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 198 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 199 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 200 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 201 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 202 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 203 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 205 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 206 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 208 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 209 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 210 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 213 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 214 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 215 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 216 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 219 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 220 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 221 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 222 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 225 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 227 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 228 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 229 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 232 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 233 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 234 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 235 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 238 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 239 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 241 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 242 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 250 [-Wtabs]
+./src/xxdata_15/xxmkrp.for:90:14:
+
+       integer ndstack
+              1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:91:18:
+
+       integer iz0 , i   , k
+                  1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:92:14:
+
+       integer i4unit  , iabt
+              1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:93:14:
+
+       integer nfirst  , iwords  , maxwrd   , istart  , istop
+              1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:94:17:
+
+       integer np , np_nat  , min_a    , max_a
+                 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:95:20:
+
+       integer i_pos , icount
+                    1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:96:20:
+
+       integer ipt_0 , ipt_1 , ipt_2      , is1min  , is1max
+                    1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:97:14:
+
+       integer ncptn_stack
+              1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:101:26:
+
+       character cblanks*6
+                          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:104:14:
+
+       integer ifirst(20)     , ilast(20)
+              1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:105:14:
+
+       integer ip0(ia_dim)    , ip1(ia_dim)
+              1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:110:11:
+
+       data cblanks/'      '/
+           1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:125:26:
+
+       if(iptnl.eq.1) then
+                          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:139:16:
+
+       else
+                1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:150:17:
+
+            enddo
+                 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:160:16:
+
+       else
+                1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:171:12:
+
+       endif
+            1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:208:66:
+
+     if((ipt_1.gt.ipt_0).and.((istop-ipt_0+1).ge.80)) then
+                                                                  1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:249:11:
+
+        end
+           1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxmkrp.for:92:28:
+
+       integer i4unit  , iabt
+                            1
+Warning: Unused variable 'iabt' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:104:24:
+
+       integer ifirst(20)     , ilast(20)
+                        1
+Warning: Unused variable 'ifirst' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:104:40:
+
+       integer ifirst(20)     , ilast(20)
+                                        1
+Warning: Unused variable 'ilast' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:105:25:
+
+       integer ip0(ia_dim)    , ip1(ia_dim)
+                         1
+Warning: Unused variable 'ip0' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:105:42:
+
+       integer ip0(ia_dim)    , ip1(ia_dim)
+                                          1
+Warning: Unused variable 'ip1' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:96:59:
+
+       integer ipt_0 , ipt_1 , ipt_2      , is1min  , is1max
+                                                           1
+Warning: Unused variable 'is1max' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:96:49:
+
+       integer ipt_0 , ipt_1 , ipt_2      , is1min  , is1max
+                                                 1
+Warning: Unused variable 'is1min' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:93:30:
+
+       integer nfirst  , iwords  , maxwrd   , istart  , istop
+                              1
+Warning: Unused variable 'iwords' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:91:27:
+
+       integer iz0 , i   , k
+                           1
+Warning: Unused variable 'k' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:94:45:
+
+       integer np , np_nat  , min_a    , max_a
+                                             1
+Warning: Unused variable 'max_a' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:93:40:
+
+       integer nfirst  , iwords  , maxwrd   , istart  , istop
+                                        1
+Warning: Unused variable 'maxwrd' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:94:34:
+
+       integer np , np_nat  , min_a    , max_a
+                                  1
+Warning: Unused variable 'min_a' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:93:20:
+
+       integer nfirst  , iwords  , maxwrd   , istart  , istop
+                    1
+Warning: Unused variable 'nfirst' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:94:16:
+
+       integer np , np_nat  , min_a    , max_a
+                1
+Warning: Unused variable 'np' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:94:25:
+
+       integer np , np_nat  , min_a    , max_a
+                         1
+Warning: Unused variable 'np_nat' declared at (1) [-Wunused-variable]
+./src/xxdata_15/xxmkrp.for:100:41:
+
+       character c80*80         , strg*120
+                                         1
+Warning: Unused variable 'strg' declared at (1) [-Wunused-variable]
+gfortran:f77: ./src/xxdata_15/i4unit.for
+gfortran:f77: ./src/xxdata_15/i4fctn.for
+f951: Warning: Nonconforming tab character in column 2 of line 127 [-Wtabs]
+gfortran:f77: ./src/xxdata_15/r8fctn.for
+f951: Warning: Nonconforming tab character in column 2 of line 121 [-Wtabs]
+gfortran:f77: ./src/xxdata_15/xxhkey.for
+f951: Warning: Nonconforming tab character in column 1 of line 184 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 198 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 199 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 200 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 201 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 202 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 207 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 211 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 212 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 213 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 214 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 215 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 216 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 265 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 266 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 267 [-Wtabs]
+./src/xxdata_15/xxhkey.for:200:20:
+
+         else
+                    1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:209:10:
+
+      &    ( ctext(ipos2:ipos2).ne.'=')) then
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:23:
+
+      &           .and.
+                       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:209:10:
+
+      &    ( ctext(ipos2:ipos2).ne.'=')) then
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:23:
+
+      &           .and.
+                       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:209:10:
+
+      &    ( ctext(ipos2:ipos2).ne.'=')) then
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:23:
+
+      &           .and.
+                       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:209:10:
+
+      &    ( ctext(ipos2:ipos2).ne.'=')) then
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:207:38:
+
+   if((ctext(ipos2:ipos2).ne.' ')
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:10:
+
+      &           .and.
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:209:10:
+
+      &    ( ctext(ipos2:ipos2).ne.'=')) then
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:23:
+
+      &           .and.
+                       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:209:10:
+
+      &    ( ctext(ipos2:ipos2).ne.'=')) then
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:23:
+
+      &           .and.
+                       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:209:10:
+
+      &    ( ctext(ipos2:ipos2).ne.'=')) then
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:208:23:
+
+      &           .and.
+                       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:209:10:
+
+      &    ( ctext(ipos2:ipos2).ne.'=')) then
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:213:15:
+
+      else
+               1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+./src/xxdata_15/xxhkey.for:267:16:
+
+      endif
+                1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+gfortran:f77: ./src/xxdata_15/xxword.for
+gfortran:f77: ./src/xxdata_15/xxcase.for
+gfortran:f77: ./src/xxdata_15/i4eiz0.for
+f951: Warning: Nonconforming tab character in column 2 of line 80 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 2 of line 81 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 2 of line 84 [-Wtabs]
+gfortran:f77: ./src/xxdata_15/xfelem.for
+gfortran:f77: ./src/xxdata_15/xxslen.for
+gfortran:f77: ./src/helper_functions.for
+/opt/local/bin/gfortran -Wall -g -m64 -Wall -g -undefined dynamic_lookup -bundle build/temp.macosx-10.7-x86_64-3.6/src/_xxdata_15module.o build/temp.macosx-10.7-x86_64-3.6/build/src.macosx-10.7-x86_64-3.6/fortranobject.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxdata_15.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxrptn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxmkrp.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4unit.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/r8fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxhkey.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxword.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxcase.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4eiz0.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xfelem.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxslen.o build/temp.macosx-10.7-x86_64-3.6/src/helper_functions.o -L/opt/local/lib/gcc6/gcc/x86_64-apple-darwin16/6.3.0 -L/Users/thomasbody/anaconda/lib -lgfortran -o atomic/_xxdata_15.cpython-36m-darwin.so
+
+>> setup_fortran_programs.py exited
