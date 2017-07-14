@@ -96,7 +96,7 @@ def read_xxdata_11(file_full_path,file_class):
     # <<will need to find the correct path for _xxdata_11 - may be either the version in atomic or in src>>
     
     # import _xxdata_11
-    from atomic import _xxdata_11
+    from src import _xxdata_11
     # from src import _xxdata_11
 
     # Some hard coded parameters to run xxdata_11.for routine.  The values have

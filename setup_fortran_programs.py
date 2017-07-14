@@ -35,8 +35,21 @@ sources = ['xxdata_15.for', 'xxrptn.for', 'xxmkrp.for', 'i4unit.for',
 extension_modules['_xxdata_15'] = dict(sources=sources, directory=directory)
 
 def configuration(parent_package='', top_path=None):
+    #
+    # class numpy.distutils.misc_util.Configuration(package_name=None,
+    #   parent_name=None, top_path=None, package_path=None, **attrs)[source]
+    #   ->  Construct a configuration instance for the given package name.
+    #       If parent_name is not None, then construct the package as a sub-package
+    #       of the parent_name package. If top_path and package_path are None then they
+    #       are assumed equal to the path of the file this instance was created in. The
+    #       setup.py files in the numpy distribution are good examples of how to use
+    #       the Configuration instance.
+
+    # todict()[source] (method on Configuration class)
+    #   ->  Return a dictionary compatible with the keyword arguments of distutils setup function.
+      
     from numpy.distutils.misc_util import Configuration
-    config = Configuration('atomic', parent_package, top_path)
+    config = Configuration('src', parent_package, top_path)
 
     for module, values in extension_modules.items():
         directory = values['directory']

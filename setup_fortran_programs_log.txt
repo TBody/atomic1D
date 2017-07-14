@@ -5,7 +5,7 @@ Building fortran helper functions in src
 running build_ext
 running build_src
 build_src
-building extension "atomic._xxdata_11" sources
+building extension "src._xxdata_11" sources
 f2py options: []
 f2py: ./src/xxdata_11.pyf
 Reading fortran codes...
@@ -31,7 +31,7 @@ creating build
 creating build/src.macosx-10.7-x86_64-3.6
 copying /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.c -> build/src.macosx-10.7-x86_64-3.6
 copying /Users/thomasbody/anaconda/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.h -> build/src.macosx-10.7-x86_64-3.6
-building extension "atomic._xxdata_15" sources
+building extension "src._xxdata_15" sources
 f2py options: []
 f2py: ./src/xxdata_15.pyf
 Reading fortran codes...
@@ -60,7 +60,7 @@ customize Gnu95FCompiler
 Found executable /opt/local/bin/gfortran
 customize Gnu95FCompiler
 customize Gnu95FCompiler using build_ext
-building 'atomic._xxdata_11' extension
+building 'src._xxdata_11' extension
 compiling C sources
 C compiler: gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -I/Users/thomasbody/anaconda/include -arch x86_64 -I/Users/thomasbody/anaconda/include -arch x86_64
 
@@ -357,8 +357,8 @@ gfortran:f77: ./src/xxdata_11/xxcase.for
 gfortran:f77: ./src/xxdata_11/xfelem.for
 gfortran:f77: ./src/xxdata_11/xxslen.for
 gfortran:f77: ./src/helper_functions.for
-/opt/local/bin/gfortran -Wall -g -m64 -Wall -g -undefined dynamic_lookup -bundle build/temp.macosx-10.7-x86_64-3.6/src/_xxdata_11module.o build/temp.macosx-10.7-x86_64-3.6/build/src.macosx-10.7-x86_64-3.6/fortranobject.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxdata_11.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxrptn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/i4unit.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/i4fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxword.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxcase.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xfelem.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxslen.o build/temp.macosx-10.7-x86_64-3.6/src/helper_functions.o -L/opt/local/lib/gcc6/gcc/x86_64-apple-darwin16/6.3.0 -L/Users/thomasbody/anaconda/lib -lgfortran -o atomic/_xxdata_11.cpython-36m-darwin.so
-building 'atomic._xxdata_15' extension
+/opt/local/bin/gfortran -Wall -g -m64 -Wall -g -undefined dynamic_lookup -bundle build/temp.macosx-10.7-x86_64-3.6/src/_xxdata_11module.o build/temp.macosx-10.7-x86_64-3.6/build/src.macosx-10.7-x86_64-3.6/fortranobject.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxdata_11.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxrptn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/i4unit.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/i4fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxword.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxcase.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xfelem.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_11/xxslen.o build/temp.macosx-10.7-x86_64-3.6/src/helper_functions.o -L/opt/local/lib/gcc6/gcc/x86_64-apple-darwin16/6.3.0 -L/Users/thomasbody/anaconda/lib -lgfortran -o src/_xxdata_11.cpython-36m-darwin.so
+building 'src._xxdata_15' extension
 compiling C sources
 C compiler: gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -I/Users/thomasbody/anaconda/include -arch x86_64 -I/Users/thomasbody/anaconda/include -arch x86_64
 
@@ -1011,6 +1011,6 @@ f951: Warning: Nonconforming tab character in column 2 of line 84 [-Wtabs]
 gfortran:f77: ./src/xxdata_15/xfelem.for
 gfortran:f77: ./src/xxdata_15/xxslen.for
 gfortran:f77: ./src/helper_functions.for
-/opt/local/bin/gfortran -Wall -g -m64 -Wall -g -undefined dynamic_lookup -bundle build/temp.macosx-10.7-x86_64-3.6/src/_xxdata_15module.o build/temp.macosx-10.7-x86_64-3.6/build/src.macosx-10.7-x86_64-3.6/fortranobject.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxdata_15.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxrptn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxmkrp.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4unit.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/r8fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxhkey.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxword.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxcase.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4eiz0.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xfelem.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxslen.o build/temp.macosx-10.7-x86_64-3.6/src/helper_functions.o -L/opt/local/lib/gcc6/gcc/x86_64-apple-darwin16/6.3.0 -L/Users/thomasbody/anaconda/lib -lgfortran -o atomic/_xxdata_15.cpython-36m-darwin.so
+/opt/local/bin/gfortran -Wall -g -m64 -Wall -g -undefined dynamic_lookup -bundle build/temp.macosx-10.7-x86_64-3.6/src/_xxdata_15module.o build/temp.macosx-10.7-x86_64-3.6/build/src.macosx-10.7-x86_64-3.6/fortranobject.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxdata_15.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxrptn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxmkrp.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4unit.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/r8fctn.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxhkey.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxword.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxcase.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/i4eiz0.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xfelem.o build/temp.macosx-10.7-x86_64-3.6/src/xxdata_15/xxslen.o build/temp.macosx-10.7-x86_64-3.6/src/helper_functions.o -L/opt/local/lib/gcc6/gcc/x86_64-apple-darwin16/6.3.0 -L/Users/thomasbody/anaconda/lib -lgfortran -o src/_xxdata_15.cpython-36m-darwin.so
 
 >> setup_fortran_programs.py exited
