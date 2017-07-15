@@ -48,7 +48,7 @@ class ImpuritySpecies(object):
 		else:
 			_print_rate_check = 'Initialised'
 		
-		return 'Impurity species object with attributes'+\
+		return 'ImpuritySpecies object with attributes'+\
 		'\n'+'{:>25} = {}'.format('symbol',			 		self.symbol)+\
 		'\n'+'{:>25} = {}'.format('year',			 		self.year)+\
 		'\n'+'{:>25} = {}'.format('has_charge_exchange',	self.has_charge_exchange)+\
@@ -62,9 +62,11 @@ class ImpuritySpecies(object):
 		# 2. Check that this file exists in the JSON_database_path/json_data directory
 		# 3. Add this file to the atomic data .adas_files_dict attribute
 		import os.path
-		filename = '{}{}_{}.json'.format(filetype_code,str(self.year)[-2:],self.symbol)
 
-		if not(os.path.isfile('{}/json_data/{}'.format(JSON_database_path,filename))):
+		filename = '{}{}_{}.json'.format(filetype_code,str(self.year)[-2:],self.symbol)
+		full_path = '{}/json_data/{}'.format(JSON_database_path,filename)
+
+		if not(os.path.isfile(full_path)):
 			raise FileNotFoundError('File {} not found in {}/json_data'.format(filename,JSON_database_path))
 
 		self.adas_files_dict[physics_process] = filename
@@ -72,12 +74,8 @@ class ImpuritySpecies(object):
 	def makeRateCoefficients(self,JSON_database_path):
 		# Calls the RateCoefficient.__init__ method for each entry in the .adas_files_dict
 		# Generates a dictionary of RateCoefficient objects as .rate_coefficients
-		
 		from atomic1D import RateCoefficient
+
 		for physics_process, filename in self.adas_files_dict.items():
-			self.rate_coefficients[physics_process] = RateCoefficient(self,filename)
-
-
-
-
-
+			full_path = '{}/json_data/{}'.format(JSON_database_path,filename)
+			self.rate_coefficients[physics_process] = RateCoefficient(self,full_path)

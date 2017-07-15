@@ -257,7 +257,6 @@ def store_as_JSON(data_dict,file_basename):
     # Need to 'jsonify' the numpy arrays (i.e. convert to nested lists) so that they can be stored in plain-text
     # Deep-copy data to a new dictionary and then edit that one (i.e. break the data pointer association - keep data_dict unchanged in case you want to run a copy-verify on it)
     
-
     data_dict_jsonified = deepcopy(data_dict)
 
     numpy_ndarrays = [];

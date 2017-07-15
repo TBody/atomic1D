@@ -9,6 +9,7 @@
 # Under active development: <<TODO>> indicates development goal
 
 from atomic1D import ImpuritySpecies #Load the impurity species class
+from atomic1D import sharedFunctions
 
 # Mapping between processes and their ADAS codes
 # Note that the code will try to generate a file for each process listed
@@ -100,35 +101,6 @@ def processCommandLineArguments():
 	print('Element: {}, year: {}, has cx power: {}'.format(impurity.name,impurity.year,impurity.has_charge_exchange))
 
 	return [input_file, JSON_database_path, impurity]
-
-def retriveFromJSON(file_name):
-	# Inputs - a JSON file corresponding to an OpenADAS .dat file or SD1D output file
-	# file_name can be either relative or absolute path to JSON file
-	# Must have .json extension and match keys of creation
-	# Not need for the .dat -> .json conversion, but included for reference
-	import json
-	from warnings import warn
-	from copy import deepcopy
-	import numpy as np
-
-	file_extension  = file_name.split('.')[-1] #Look at the extension only (last element of split on '.')
-	if file_extension != 'json':
-		raise NotImplementedError('File extension (.{}) is not .json'.format(file_extension))
-
-	with open(file_name,'r') as fp:
-		data_dict = json.load(fp)
-
-	if  set(data_dict.keys()) != {'charge','class','element', 'help','log_coeff','log_density','log_temperature','name','number_of_charge_states'}\
-	and set(data_dict.keys()) != {'help', 'Ne', 'Nn', 'Nnorm', 'P', 'Tnorm', 'numpy_ndarrays'}:
-		warn('Imported JSON file {} does not have the expected set of keys - could result in an error'.format(file_name))
-
-	# Convert jsonified numpy.ndarrays back from nested lists
-	data_dict_dejsonified = deepcopy(data_dict)
-
-	for key in data_dict['numpy_ndarrays']:
-		data_dict_dejsonified[key] = np.array(data_dict_dejsonified[key])
-
-	return data_dict_dejsonified
 	
 def processInputFile(input_file):
 	# process a input JSON file to extract Te(s,t), ne(s,t), ne/nn (s,t)
@@ -139,8 +111,9 @@ def processInputFile(input_file):
 	# return:   Te, ne, neutral_fraction
 
 	# input_file can be either relative or absolute path to JSON file
-	
-	data_dict = retriveFromJSON(input_file)
+	# from atomic1D import retrieveFromJSON
+
+	data_dict = sharedFunctions.retrieveFromJSON(input_file)
 
 	# Retrieve (normalised values)
 	Ne = data_dict['Ne']
@@ -171,17 +144,19 @@ if __name__ == '__main__':
 	for key, value in datatype_abbrevs.items():
 		if impurity.has_charge_exchange or not(value in {'ccd', 'prc'}):
 			impurity.addJSONFiles(key,value,JSON_database_path)
-	
+
 	# Use the .adas_file_dict files to generate RateCoefficient objects for each process
 	# Uses the same keys as .adas_file_dict
 	impurity.makeRateCoefficients(JSON_database_path)
-	print(impurity)
+	
+	print(impurity.rate_coefficients['ionisation'])	
+	impurity.rate_coefficients['ionisation'].inspect_with_plot(1)
 
 	# Process the input_file to extract
 	# 	Ne 					= electron density (in m^-3)
 	# 	T					= electron/ion temperature (in eV)
 	# 	neutral_fraction	= neutral density/electron density (no units)
-	[Ne, T, neutral_fraction] = processInputFile(input_file)
+	# [Ne, T, neutral_fraction] = processInputFile(input_file)
 
 
 

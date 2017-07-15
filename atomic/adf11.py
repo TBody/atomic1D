@@ -9,9 +9,6 @@ detailed description of the possible subclasses.
 import os
 import numpy as np
 
-import pdb #import the python debugger
-import pickle #import pickle for file dump
-
 if __name__ == '__main__':
     # For main access - could also use 'if __name__ == __main__'
     import _xxdata_11
