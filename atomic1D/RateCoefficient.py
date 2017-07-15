@@ -56,9 +56,49 @@ class RateCoefficient(object):
 			z = self.log_coeff[k]
 			self.splines.append(RectBivariateSpline(x, y, z))
 
-	def __call__(self, k, Te, ne):
-		"""Evaulate the ionisation/recombination coefficients of
+	def call1D(self, k, Te, ne):
+		"""Evaluate the ionisation/recombination coefficients of
 		k'th atomic state at a given temperature and density.
+
+		For 1D case - either Te or ne vary while the other is fixed (i.e. parameter scan),
+		or both vary but are linked (i.e. analysis of 1D output)
+		>>Key difference to call2D is the grid=False argument - otherwise will return
+		  interpolations over the len(Te)*len(ne) 2D array
+
+		Args:
+			k  (int): Ionising or recombined ion stage,
+				between 0 and k=Z-1, where Z is atomic number.
+			Te (array_like): Temperature in [eV].
+			ne (array_like): Density in [m-3].
+
+		Returns:
+			c (array_like): Rate coefficent in [m3/s].
+		"""
+
+		# broadcast_arrays ensures that Te and ne are of the same shape
+		# if they are originally equal then they remain so, while if len(A) = L
+		# and len(B) = 1 then B' = L repeats of B
+		Te, ne = np.broadcast_arrays(Te, ne)
+
+		# Need to convert both temp and density to log-scale, since this is what the spline-interpolation is performed for
+		log_temperature = np.log10(Te)
+		log_density = np.log10(ne)
+
+		# Find the logarithm of the rate-coefficient
+		log_coeff = self.splines[k](log_temperature, log_density, grid=False)
+		# Raise (piecewise) to the power 10 to return in m3/s
+		coeffs = np.power(10,log_coeff)
+
+		return coeffs
+
+	def call2D(self, k, Te, ne):
+		"""Evaluate the ionisation/recombination coefficients of
+		k'th atomic state at a given temperature and density.
+
+		For 2D case - Te and ne vary independantly - return a 2D array of results across
+		parameter space
+		>>Key difference to call1D is the implicit grid=True argument - will return
+		  interpolations over the len(Te)*len(ne) 2D array
 
 		Args:
 			k  (int): Ionising or recombined ion stage,
