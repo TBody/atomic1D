@@ -9,9 +9,11 @@ import os
 
 # Supported adf11 data classes.  See src/xxdata_11/xxdata_11.for for all the
 # twelve classes.
+# TBody: added charge exchange reccombination (15/7/15) in addition to classes supported by cfe316/atomic
 adf11_classes = {
     'acd' : 1, # recombination coefficients
     'scd' : 2, # ionisation coefficients
+    'ccd' : 3, # charge-exchange reccombination
     'prb' : 4, # continuum radiation power
     'plt' : 8, # line radiation power
     'prc' : 5, # charge-exchange recombination radiation
@@ -19,11 +21,12 @@ adf11_classes = {
 }
 
 datatype_abbrevs = {
-        'ionisation' : 'scd',
-        'recombination' : 'acd',
-        'continuum_power' : 'prb',
-        'line_power' : 'plt',
-        'cx_power' : 'prc',
+        'ionisation'           : 'scd',
+        'recombination'        : 'acd',
+        'cx_recc'              : 'ccd',
+        'continuum_power'      : 'prb',
+        'line_power'           : 'plt',
+        'cx_power'             : 'prc',
         'ionisation_potential' : 'ecd',
 }
 
