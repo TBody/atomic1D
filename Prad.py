@@ -8,7 +8,26 @@
 # 
 # Under active development: <<TODO>> indicates development goal
 
-def process_command_line_arguments():
+from atomic1D import ImpuritySpecies #Load the impurity species class
+
+# Mapping between processes and their ADAS codes
+# Note that the code will try to generate a file for each process listed
+# Will return an error if file not found, except for charge exchange (ccd and prc)
+# which is skipped if .has_charge_exchange = False
+datatype_abbrevs = {
+        'ionisation'           : 'scd',
+        'recombination'        : 'acd',
+        'cx_recc'              : 'ccd',
+        'continuum_power'      : 'prb',
+        'line_power'           : 'plt',
+        'cx_power'             : 'prc',
+        'ionisation_potential' : 'ecd',
+}
+
+# Invert the mapping of datatype_abbrevs
+inv_datatype_abbrevs = {v: k for k, v in datatype_abbrevs.items()}
+
+def processCommandLineArguments():
 	# Processes the command line arguments supplied to Prad.py, to set paths to input_file and JSON_database_path
 	# 
 	# input: none (all supplied via command line)
@@ -23,7 +42,7 @@ def process_command_line_arguments():
 
 	# Check command line arguments
 	for command_line_argument in sys.argv:
-		if 'Prad.py' == command_line_argument:
+		if 'Prad.py' in command_line_argument:
 			# First argument will always be the function-name - skip this
 			continue
 		elif '-help' == command_line_argument:
@@ -73,24 +92,16 @@ def process_command_line_arguments():
 		raise FileNotFoundError("OpenADAS JSON database ({}) not found".format(JSON_database_path))
 
 	e = element.lower()
-	# <<TODO>> Move this data specification to somewhere more easily found
-	if e in ['c', 'carbon']:
-		element = 'c'
-		year = 96
-		has_cx_power = True
-		element_fullname = 'Carbon'
-	elif e in ['n', 'nitrogen']:
-		element = 'n'
-		year = 96
-		has_cx_power = False
-		element_fullname = 'Nitrogen'
-	else:
-		raise NotImplementedError("Impurity element ({}) not yet implemented".format(element))
-	print('Element: {}, year: {}, has cx power: {}'.format(element_fullname,year,has_cx_power))
 
-	return [input_file, JSON_database_path, element, year, has_cx_power]
+	try:
+		impurity = ImpuritySpecies(e)
+	except KeyError:
+		raise NotImplementedError("Impurity element ({}) not yet implemented".format(e))
+	print('Element: {}, year: {}, has cx power: {}'.format(impurity.name,impurity.year,impurity.has_charge_exchange))
 
-def retrive_from_JSON(file_name):
+	return [input_file, JSON_database_path, impurity]
+
+def retriveFromJSON(file_name):
 	# Inputs - a JSON file corresponding to an OpenADAS .dat file or SD1D output file
 	# file_name can be either relative or absolute path to JSON file
 	# Must have .json extension and match keys of creation
@@ -119,7 +130,7 @@ def retrive_from_JSON(file_name):
 
 	return data_dict_dejsonified
 	
-def process_input_file(input_file):
+def processInputFile(input_file):
 	# process a input JSON file to extract Te(s,t), ne(s,t), ne/nn (s,t)
 	# n.b. s refers to the upstream distance from the strike-point
 	#      t is time (will need to add normalisation factor <<TODO>> to convert to real-time)
@@ -129,7 +140,7 @@ def process_input_file(input_file):
 
 	# input_file can be either relative or absolute path to JSON file
 	
-	data_dict = retrive_from_JSON(input_file)
+	data_dict = retriveFromJSON(input_file)
 
 	# Retrieve (normalised values)
 	Ne = data_dict['Ne']
@@ -147,20 +158,37 @@ def process_input_file(input_file):
 	# Converts N into m^-3, T into eV
 
 	return [Ne*Nnorm, T*Tnorm, neutral_fraction]
-		  
 
 if __name__ == '__main__':
+
 	# Process command line arguments to set the path to the input file (from SD1D)
 	# and the JSON database (from make json_update)
-	[input_file, JSON_database_path, element, year, has_cx_power] = process_command_line_arguments()
+	[input_file, JSON_database_path, impurity] = processCommandLineArguments()
 	
+	# Add the JSON files associated with this impurity to its .adas_files_dict attribute
+	# where the key is the (extended) process name, which maps to a filename (string)
+	# Check that these files exist in the JSON_database_path/json_data/ directory
+	for key, value in datatype_abbrevs.items():
+		if impurity.has_charge_exchange or not(value in {'ccd', 'prc'}):
+			impurity.addJSONFiles(key,value,JSON_database_path)
+	
+	# Use the .adas_file_dict files to generate RateCoefficient objects for each process
+	# Uses the same keys as .adas_file_dict
+	impurity.makeRateCoefficients(JSON_database_path)
+	print(impurity)
+
 	# Process the input_file to extract
 	# 	Ne 					= electron density (in m^-3)
 	# 	T					= electron/ion temperature (in eV)
 	# 	neutral_fraction	= neutral density/electron density (no units)
-	[Ne, T, neutral_fraction] = process_input_file(input_file)
+	[Ne, T, neutral_fraction] = processInputFile(input_file)
 
-	
+
+
+
+
+
+
 
 
 
