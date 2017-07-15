@@ -1,4 +1,4 @@
-# Program name: atomic1D/build_json.py
+# Program name: atomic1D/json_database/build_json.py
 # Author: Thomas Body
 # Author email: tajb500@york.ac.uk
 # Date of creation: 12 July 2017
@@ -267,6 +267,8 @@ def store_as_JSON(data_dict,file_basename):
             numpy_ndarrays.append(key)
             data_dict_jsonified[key] = data_dict_jsonified[key].tolist()
 
+    data_dict_jsonified['numpy_ndarrays'] = numpy_ndarrays
+
     # Encode help
     data_dict_jsonified["help"] = "JSON file corresponding to an OpenADAS data file\nCreated by TBody/atomic1D/build_json.py/store_as_JSON\nDocumentation at https://github.com/TBody/atomic1D"
     
@@ -282,6 +284,8 @@ def retrive_from_JSON(file_name):
     # Not need for the .dat -> .json conversion, but included for reference
     import json
     from warnings import warn
+    from copy import deepcopy
+    import numpy as np
 
     file_extension  = file_name.split('.')[-1] #Look at the extension only (last element of split on '.')
     if file_extension != 'json':
@@ -293,9 +297,15 @@ def retrive_from_JSON(file_name):
     if set(data_dict.keys()) != {'charge','class','element', 'help','log_coeff','log_density','log_temperature','name','number_of_charge_states'}:
         warn('Imported JSON file {} does not have the expected set of keys - could result in an error'.format(file_name))
 
+    # Convert jsonified numpy.ndarrays back from nested lists
+    data_dict_dejsonified = deepcopy(data_dict)
+
+    for key in data_dict['numpy_ndarrays']:
+        data_dict_dejsonified[key] = np.array(data_dict_dejsonified[key])
+
     # print(data_dict['help'])
 
-    return data_dict
+    return data_dict_dejsonified
 
 
 

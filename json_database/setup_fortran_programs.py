@@ -1,4 +1,4 @@
-# Program name: atomic1D/setup_fortran_programs.py
+# Program name: atomic1D/json_database/setup_fortran_programs.py
 # Author: Thomas Body
 # Author email: tajb500@york.ac.uk
 # Date of creation: 12 July 2017

@@ -4,8 +4,6 @@ Converting .dat files to .json files
 
 Current working directory is: /Users/thomasbody/Dropbox/Thesis/atomic1D/json_database
 adas_data/ sub-directory found - proceeding
-ccd96_c.dat has class ccd - not recognised as ADF11 class
-Skipping - will not produce a JSON file for this data
 ionelec_pec#c1.dat has class ion - not recognised as ADF11 class
 Skipping - will not produce a JSON file for this data
 ionelec_pec#c2.dat has class ion - not recognised as ADF11 class
@@ -146,6 +144,16 @@ Skipping - will not produce a JSON file for this data
  ****************************** xxdata_11 warning ******************************
 
   no class name given in file
+
+ ****************************** program continues ******************************
+ ****************************** xxdata_11 warning ******************************
+
+  no class name given in file
+
+ ****************************** program continues ******************************
+ ****************************** xxdata_11 warning ******************************
+
+  unspecified CX donor element
 
  ****************************** program continues ******************************
  ****************************** xxdata_11 warning ******************************

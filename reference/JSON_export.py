@@ -1,8 +1,7 @@
-# Program name: atomic1D/build_json.py
+# Program name: atomic1D/reference/build_json.py
 # Author: Thomas Body
 # Author email: tajb500@york.ac.uk
 # Date of creation: 14 July 2017
-# 
 # 
 # Copies a file called 'data_dict' into a .json file specified as 'filename'
 # 

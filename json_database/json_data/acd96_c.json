@@ -4756,5 +4756,10 @@
         4.17629
     ],
     "name": "/Users/thomasbody/Dropbox/Thesis/atomic1D/json_database/adas_data/acd96_c.dat",
-    "number_of_charge_states": 6
+    "number_of_charge_states": 6,
+    "numpy_ndarrays": [
+        "log_density",
+        "log_temperature",
+        "log_coeff"
+    ]
 }

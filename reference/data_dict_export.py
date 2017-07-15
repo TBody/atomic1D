@@ -1,4 +1,4 @@
-# Program name: atomic1D/build_json.py
+# Program name: atomic1D/reference/build_json.py
 # Author: Thomas Body
 # Author email: tajb500@york.ac.uk
 # Date of creation: 14 July 2017
@@ -24,7 +24,7 @@ data_dict["Ne"] = collect("Ne")
 data_dict["Nn"] = collect("Nn")
 
 # Help for user
-data_dict["Help"] = "Contains outputs from Boutprojects/SD1D/case-05 example. Created with data_dict_export.py - stored in Github.com/TBody/atomic1D/reference"
+data_dict["help"] = "Contains outputs from Boutprojects/SD1D/case-05 example. Created with data_dict_export.py - stored in Github.com/TBody/atomic1D/reference"
 
 from copy import deepcopy
 import numpy as np
@@ -41,6 +41,8 @@ for key, element in data_dict.items():
         # Store which keys correspond to numpy.ndarray, so that you can de-jsonify the arrays when reading
         numpy_ndarrays.append(key)
         data_dict_jsonified[key] = data_dict_jsonified[key].tolist()
+
+data_dict_jsonified['numpy_ndarrays'] = numpy_ndarrays
 
 # Encode help
 # >> data_dict['help'] = 'help string'

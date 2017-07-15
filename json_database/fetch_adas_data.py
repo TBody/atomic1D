@@ -1,4 +1,4 @@
-# Program name: atomic1D/fetch_adas_data.py
+# Program name: atomic1D/json_database/fetch_adas_data.py
 # Author: Thomas Body
 # Author email: tajb500@york.ac.uk
 # Date of creation: 12 July 2017

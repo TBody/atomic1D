@@ -1,3 +1,20 @@
+# Program name: atomic1D/makefile
+# Author: Thomas Body
+# Author email: tajb500@york.ac.uk
+# Date of creation: 12 July 2017
+# 
+# Makefile to automate the building and running of the atomic1D code
+# 
+# User control should be entirely contained within the header (i.e. section before the first <<command: dependancies>> line)
+# Use:	verbose = true	-> print all warnings and errors to screen
+# 				  false	-> print all warnings and errors to _log.txt file
+# 		JSON_database_path to set the path to where json_database should be created and read from
+# 
+# To build and run the json builder code execute
+# >> make json_update
+# This will download .dat files from OpenADAS and then use fortran helper functions (in src) to read data.
+# Data is saved as .json files in json_data (basename of file is unchanged)
+
 JSON_database_path = json_database
 verbose = false
 
@@ -24,7 +41,6 @@ endif
 	@echo "JSON files successfully created"
 	@echo ""
 	
-
 fetch:
 	@echo "Fetching atomic data from OpenADAS"
 	@echo ""
