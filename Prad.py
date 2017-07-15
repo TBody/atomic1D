@@ -150,7 +150,8 @@ if __name__ == '__main__':
 	impurity.makeRateCoefficients(JSON_database_path)
 	
 	print(impurity.rate_coefficients['ionisation'])	
-	impurity.rate_coefficients['ionisation'].inspect_with_plot(1)
+	# impurity.rate_coefficients['ionisation'].inspect_with_plot(1)
+	impurity.rate_coefficients['ionisation'].inspect_interp_with_plot(1)
 
 	# Process the input_file to extract
 	# 	Ne 					= electron density (in m^-3)

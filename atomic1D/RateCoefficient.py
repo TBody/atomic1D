@@ -34,7 +34,7 @@ class RateCoefficient(object):
 		self.log_density     = data_dict['log_density']
 		self.log_coeff       = data_dict['log_coeff']
 
-		self._compute_interpolating_splines
+		self._compute_interpolating_splines()
 
 	def __str__(self):
 		return 'RateCoefficient object with attributes'+\
@@ -43,12 +43,14 @@ class RateCoefficient(object):
 		'\n'+'{:>25} = {}'.format('adf11_file',			self.adf11_file)+\
 		'\n'+'{:>25} = {}'.format('log_temperature',	'{} numpy array'.format(self.log_temperature.shape))+\
 		'\n'+'{:>25} = {}'.format('log_density',		'{} numpy array'.format(self.log_density.shape))+\
-		'\n'+'{:>25} = {}'.format('log_coeff',			'{} numpy array'.format(self.log_coeff.shape))
+		'\n'+'{:>25} = {}'.format('log_coeff',			'{} numpy array'.format(self.log_coeff.shape))+\
+		'\n'+'{:>25} = {}'.format('splines[k]',			'RectBivariateSpline interpolations')
 
 	def _compute_interpolating_splines(self):
 		# Generate the interpolation functions for log_coeff
+		
 		self.splines = []
-		for k in range(self.nuclear_charge):
+		for k in range(self.atomic_number):
 			x = self.log_temperature
 			y = self.log_density
 			z = self.log_coeff[k]
@@ -57,13 +59,6 @@ class RateCoefficient(object):
 	def __call__(self, k, Te, ne):
 		"""Evaulate the ionisation/recombination coefficients of
 		k'th atomic state at a given temperature and density.
-
-		N.b. If asked to evaluate for Te = np.array([1,2,3])
-			and ne = np.array([a,b,c]),
-			it will return coeffs at (1,a), (2,b), and (3,c),
-			not a 3x3 matrix of all the grid points.
-			I'm not sure yet if __call__ is typically
-			done with 1D or 2D arrays.
 
 		Args:
 			k  (int): Ionising or recombined ion stage,
@@ -85,7 +80,7 @@ class RateCoefficient(object):
 		log_density = np.log10(ne)
 
 		# Find the logarithm of the rate-coefficient
-		log_coeff = self.splines[k](log_temperature, log_density, grid=False)
+		log_coeff = self.splines[k](log_temperature, log_density)
 		# Raise (piecewise) to the power 10 to return in m3/s
 		coeffs = np.power(10,log_coeff)
 
@@ -119,11 +114,36 @@ class RateCoefficient(object):
 		ax = fig.add_subplot(111, projection='3d')
 
 		x, y = np.meshgrid(self.log_temperature, self.log_density)
-		# z = 1
 		z = np.transpose(self.log_coeff[ionisation_stage, :, :])
-		# print(x.shape)
-		# print(y.shape)
-		# print(z.shape)
+
+		# Plot a basic wireframe.
+		ax.plot_wireframe(x, y, z)
+
+		ax.set_xlabel(r'$log(T_e) [eV]$')
+		ax.set_ylabel(r'$log(n_e) [m^{-3}]$')
+		ax.set_zlabel(r'$log(R) [m^3s^{-1}]$')
+
+		plt.show()
+
+	def inspect_interp_with_plot(self, ionisation_stage):
+		import matplotlib as mpl
+		import matplotlib.pyplot as plt
+		from mpl_toolkits.mplot3d import Axes3D
+
+		# For TeX labelling
+		from matplotlib import rc
+		plt.rc('text', usetex=True)
+		plt.rc('font', family='sans-serif')
+
+		fig = plt.figure()
+		ax = fig.add_subplot(111, projection='3d')
+
+		x, y = np.meshgrid(self.log_temperature, self.log_density)
+		z = np.transpose(self.splines[ionisation_stage](self.log_temperature, self.log_density))
+
+		print(x.shape)
+		print(y.shape)
+		print(z.shape)
 
 		# Plot a basic wireframe.
 		ax.plot_wireframe(x, y, z)
