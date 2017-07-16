@@ -144,7 +144,7 @@ def processInputFile(input_file):
 
 	return [T*Tnorm, Ne*Nnorm, neutral_fraction]
 
-def calculateCollRadEquilibrium(impurity, temperature, density, t):
+def calculateCollRadEquilibrium(impurity, temperature, density):
 	# Calculates the fractional distribution across ionisation stages, assuming generalised collisional-radiative
 	# equilibrium (i.e. effective ionisation and recombination rates are the only significant terms, charge-exchange
 	# is ignored)
@@ -155,13 +155,12 @@ def calculateCollRadEquilibrium(impurity, temperature, density, t):
 	# 
 	import numpy as np
 
-	# Will use the atomic number a lot in this function - extract it for easy use
 	Z = impurity.atomic_number
 
 	# Calculating for 1D linked data, output from SD1D
-	data_length = len(temperature[t, :])
+	data_length = len(temperature)
 	# Assumed that temperature and density data are of the same length - check this before continuing
-	assert data_length == len(density[t, :])
+	assert data_length == len(density)
 
 	# Preallocate an empty array for
 	y = np.zeros((Z + 1, data_length))
@@ -169,9 +168,10 @@ def calculateCollRadEquilibrium(impurity, temperature, density, t):
 	# Set the ground state density to zero (arbitrary - will normalise later)
 	y[0,:] = 1
 
-	for k in range(Z): #will return k = 0, 1, ..., Z-1
-		iz_coeffs = impurity.rate_coefficients['ionisation'].call1D(k, temperature[t,:], density[t,:])
-		recc_coeffs = impurity.rate_coefficients['recombination'].call1D(k, temperature[t,:], density[t,:])
+	for k in range(Z): #will return k = 0, 1, ..., Z-1 where Z = impurity.atomic_number
+	                                        #i.e. iterate over all charge states except bare nucleus
+		iz_coeffs = impurity.rate_coefficients['ionisation'].call1D(k, temperature, density)
+		recc_coeffs = impurity.rate_coefficients['recombination'].call1D(k, temperature, density)
 
 		# The ratio of ionisation from the (k)th stage and recombination from the (k+1)th
 		# sets the equilibrium densities of the (k+1)th stage in terms of the (k)th (since
@@ -192,6 +192,30 @@ def calculateCollRadEquilibrium(impurity, temperature, density, t):
 	assert np.allclose(y.sum(axis=0), 1.0)
 
 	return y
+
+def plot_iz_stage_distribution(temperature, density, iz_stage_distribution):
+	# plot the plasma temperature, density and ionisation-stage distribution as a function of position
+	# For a single time step
+	# 
+	
+	import matplotlib.pyplot as plt
+	print(temperature.shape)
+	print(density.shape)
+	print(iz_stage_distribution.shape)
+
+	# Create iterator for distance axis
+	s = range(len(temperature))
+
+	plt.plot(s, temperature/max(temperature),'--',label='T/{:.2f}[eV]'.format(max(temperature)))
+	plt.plot(s, density/max(density),'--',label=r'$n_e$/{:.2e}[$m^{{-3}}$]'.format(max(density)))
+	for k in range(iz_stage_distribution.shape[0]): #iterate over all charge states
+		plt.plot(iz_stage_distribution[k,:],label='{}'.format(k))
+
+	plt.xlabel('Distance from strike-point (a.u.)')
+	plt.ylabel('Fraction')
+	plt.legend()
+
+	plt.show()
 
 	
 
@@ -226,12 +250,30 @@ if __name__ == '__main__':
 
 	# First write the code for a single time-step
 	# Then extend to calculate for all time-steps <<TODO>>
-	t = 0
+	t = temperature.shape[0]-1 #select the final time-step (subtract one due to Python indexing from 0)
+	assert t == density.shape[0]-1
+
+	# Extract data for a single time-step
+	# Will reduce the amount of code rewriting needed
+	temperature = temperature[t,:]
+	density = density[t,:]
+	neutral_fraction = neutral_fraction[t,:]
+
 
 	# Calculate the distribution across ionisation stages, assuming collisional-radiative equilibrium
-	iz_stage_distribution = calculateCollRadEquilibrium(impurity, temperature, density, t)
+	iz_stage_distribution = calculateCollRadEquilibrium(impurity, temperature, density)
 
-	# compute power
+	plot_iz_stage_distribution(temperature, density, iz_stage_distribution)
+
+	# Compute radiated power
+	
+	# Compute electron cooling power
+	
+	# Time-dependent rates (much more complicated!)
+	# The atomic code has a built-in solver, while we'd probably be looking at using the BOUT solver
+	# Look over calculation of differential equation rhs?
+
+	# Export results/plot
 
 
 
