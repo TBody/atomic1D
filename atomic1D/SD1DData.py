@@ -1,3 +1,4 @@
+import numpy as np
 class SD1DData(object):
 	# For storing the data output from SD1D. To create the required JSON run the function
 	# data_dict_export.py in an I/O (case) folder in SD1D.
@@ -13,7 +14,6 @@ class SD1DData(object):
 
 		# input_file can be either relative or absolute path to JSON file
 		from atomic1D import sharedFunctions
-		import numpy as np
 
 		data_dict = sharedFunctions.retrieveFromJSON(input_file)
 
@@ -50,8 +50,23 @@ class SD1DData(object):
 		self.data_shape = data_shape
 
 	def setImpurityFraction(self,impurity_fraction):
-		# impurity_fraction is currently set as fixed fraction
+		# Set the impurity density (will be scalar multiplication if fixed fraction,
+		# and piecewise multiplication (i.e. Hadamard product) if impurity_fraction is
+		# an array of shape equal to density, otherwise will result in error)
+		
 		self.impurity_fraction = impurity_fraction
+		self.setImpurityDensity(self.impurity_fraction * self.density)
+
+	def setImpurityDensity(self,impurity_density):
+		# Set the impurity density, and check that it has the same shape as the other attributes
+		self.impurity_density  = impurity_density
+		
+		if type(self.data_shape) == int:
+			assert self.data_shape == len(self.impurity_density)
+		elif type(self.data_shape) == np.ndarray:
+			assert self.data_shape == self.impurity_density.shape
+		else:
+			raise NotImplementedError('Error checking data_shape match')
 
 	def selectSingleTime(self,t):
 		try:
@@ -64,6 +79,8 @@ class SD1DData(object):
 			self.temperature      = self.temperature[t,:]
 			self.density          = self.density[t,:]
 			self.neutral_fraction = self.neutral_fraction[t,:]
+
+		self.data_shape = self.data_shape[1]
 
 
 

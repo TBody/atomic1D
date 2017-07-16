@@ -3,7 +3,7 @@
 # Author email: tajb500@york.ac.uk
 # Date of creation: 15 July 2017
 # 
-# Program function: output the radiated power (Prad)
+# Program function: output the electron cooling power (Pcool)
 #                   by using OpenADAS rates on output JSON from SD1D run
 # 
 # Under active development: <<TODO>> indicates development goal
@@ -216,18 +216,9 @@ if __name__ == '__main__':
 	# Plot the ionisation stage distribution as a function of distance
 	# plot_iz_stage_distribution(experiment, iz_stage_distribution)
 
-	# Compute radiated power
-	# Returns total_power, stage_integrated_power (sum over all ionisation stages), and
-	# radiated_power (resolved into different ionisation stages, with 'total' giving sum over
-	# all physics_processes)
-	# 	stage_integrated_power and radiated_power are dictionaries with physics_process keys and
-	# 	data_length shape for stage_integrated_power and [Z, data_length] shape for radiated_power
-	# 	total_power is an array of shape data_length
-	computeRadiatedPower(impurity, experiment, iz_stage_distribution)
-
+	# Compute electron cooling power
+	
 	# Export results/plot
-	
-	
 
 
 
