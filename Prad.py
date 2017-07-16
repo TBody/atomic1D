@@ -86,7 +86,7 @@ def plot_iz_stage_distribution(experiment, iz_stage_distribution):
 	import matplotlib.pyplot as plt
 
 	# Create iterator for distance axis
-	s = range(experiment.data_shape[1])
+	s = range(experiment.data_shape)
 
 	plt.plot(s, experiment.temperature/max(experiment.temperature),\
 		'--',label='T/{:.2f}[eV]'.format(max(experiment.temperature)))
@@ -106,8 +106,6 @@ def plot_iz_stage_distribution(experiment, iz_stage_distribution):
 def computeRadiatedPower(impurity, experiment, iz_stage_distribution):
 	# Calculate the power radiated from each location
 	# 
-	
-
 	radiated_power = {}
 	stage_integrated_power = {}
 
@@ -173,6 +171,77 @@ def computeRadiatedPower(impurity, experiment, iz_stage_distribution):
 	experiment.stage_integrated_power = stage_integrated_power
 	experiment.total_power = total_power
 
+def plotRadiatedPowerProcess(experiment):
+	# plot the plasma temperature, density and radiated-power as a function of position
+	# For a single time step
+	
+	import matplotlib.pyplot as plt
+
+	labels = []
+
+	# Create iterator for distance axis
+	s = range(experiment.data_shape)
+
+	fig, ax1 = plt.subplots()
+
+	ax2 = ax1.twinx()
+
+	for physics_process in experiment.stage_integrated_power.keys():
+		ax1.plot(experiment.stage_integrated_power[physics_process],label='{}'.format(physics_process))
+	
+
+	ax1.set_xlabel('Distance (downstream, a.u.)')
+	ax1.set_ylabel(r'Prad $W/m^3$', color='k')
+	ax1.set_yscale('log')
+	ax1.legend(loc=3)
+
+	ax2.set_ylabel('Experiment parameter', color='b')
+	
+	ax2.plot(s, experiment.temperature/max(experiment.temperature),\
+		'--',label='T/{:.2f}[eV]'.format(max(experiment.temperature)))
+	
+	ax2.plot(s, experiment.density/max(experiment.density),\
+		'--',label=r'$n_e$/{:.2e}[$m^{{-3}}$]'.format(max(experiment.density)))
+
+	ax2.legend(loc=4)
+
+	plt.show()
+
+def plotRadiatedPowerStage(impurity, experiment):
+	# plot the plasma temperature, density and radiated-power as a function of position
+	# For a single time step
+	
+	import matplotlib.pyplot as plt
+
+	labels = []
+
+	# Create iterator for distance axis
+	s = range(experiment.data_shape)
+
+	fig, ax1 = plt.subplots()
+
+	ax2 = ax1.twinx()
+
+	for k in range(impurity.atomic_number):
+		ax1.plot(experiment.radiated_power['total'][k,:],label='{}'.format(k))	
+
+	ax1.set_xlabel('Distance (downstream, a.u.)')
+	ax1.set_ylabel(r'Prad $W/m^3$', color='k')
+	ax1.set_yscale('log')
+	ax1.legend(loc=3)
+
+	ax2.set_ylabel('Experiment parameter', color='b')
+	
+	ax2.plot(s, experiment.temperature/max(experiment.temperature),\
+		'--',label='T/{:.2f}[eV]'.format(max(experiment.temperature)))
+	
+	ax2.plot(s, experiment.density/max(experiment.density),\
+		'--',label=r'$n_e$/{:.2e}[$m^{{-3}}$]'.format(max(experiment.density)))
+
+	ax2.legend(loc=4)
+
+	plt.show()
+
 
 if __name__ == '__main__':
 
@@ -214,7 +283,7 @@ if __name__ == '__main__':
 	iz_stage_distribution = calculateCollRadEquilibrium(impurity, experiment)
 
 	# Plot the ionisation stage distribution as a function of distance
-	# plot_iz_stage_distribution(experiment, iz_stage_distribution)
+	plot_iz_stage_distribution(experiment, iz_stage_distribution)
 
 	# Compute radiated power
 	# Returns total_power, stage_integrated_power (sum over all ionisation stages), and
@@ -226,6 +295,8 @@ if __name__ == '__main__':
 	computeRadiatedPower(impurity, experiment, iz_stage_distribution)
 
 	# Export results/plot
+	# plotRadiatedPowerProcess(experiment)
+	# plotRadiatedPowerStage(impurity,experiment)
 	
 	
 
