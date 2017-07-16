@@ -153,11 +153,11 @@ class RateCoefficient(object):
 		fig = plt.figure()
 		ax = fig.add_subplot(111, projection='3d')
 
-		x, y = np.meshgrid(self.log_temperature, self.log_density)
-		z = np.transpose(self.log_coeff[ionisation_stage, :, :])
+		X, Y = np.meshgrid(self.log_temperature, self.log_density)
+		Z = np.transpose(self.log_coeff[ionisation_stage, :, :])
 
 		# Plot a basic wireframe.
-		ax.plot_wireframe(x, y, z)
+		ax.plot_wireframe(X, Y, Z)
 
 		ax.set_xlabel(r'$log(T_e) [eV]$')
 		ax.set_ylabel(r'$log(n_e) [m^{-3}]$')
@@ -178,15 +178,39 @@ class RateCoefficient(object):
 		fig = plt.figure()
 		ax = fig.add_subplot(111, projection='3d')
 
-		x, y = np.meshgrid(self.log_temperature, self.log_density)
-		z = np.transpose(self.splines[ionisation_stage](self.log_temperature, self.log_density))
-
-		print(x.shape)
-		print(y.shape)
-		print(z.shape)
+		X, Y = np.meshgrid(self.log_temperature, self.log_density)
+		Z = np.transpose(self.log_coeff[ionisation_stage, :, :])
 
 		# Plot a basic wireframe.
-		ax.plot_wireframe(x, y, z)
+		ax.plot_wireframe(X, Y, Z)
+
+		ax.set_xlabel(r'$log(T_e) [eV]$')
+		ax.set_ylabel(r'$log(n_e) [m^{-3}]$')
+		ax.set_zlabel(r'$log(R) [m^3s^{-1}]$')
+
+		plt.show()
+
+	def compare_interp_with_plot(self,ionisation_stage):
+		import matplotlib as mpl
+		import matplotlib.pyplot as plt
+		from mpl_toolkits.mplot3d import Axes3D
+
+		# For TeX labelling
+		from matplotlib import rc
+		plt.rc('text', usetex=True)
+		plt.rc('font', family='sans-serif')
+
+		fig = plt.figure()
+		ax = fig.add_subplot(111, projection='3d')
+
+		X, Y = np.meshgrid(self.log_temperature, self.log_density)
+		Z = np.transpose(self.splines[ionisation_stage](self.log_temperature, self.log_density))
+		Z_interp = np.transpose(self.splines[ionisation_stage](self.log_temperature, self.log_density))
+
+		# Plot a basic wireframe.
+		# ax.plot_wireframe(X, Y, Z, colors='r',linestyles='-')
+		ax.plot_surface(X, Y, Z, linewidth=0, antialiased=False)
+		ax.plot_wireframe(X, Y, Z_interp, colors='r',linestyles='-')
 
 		ax.set_xlabel(r'$log(T_e) [eV]$')
 		ax.set_ylabel(r'$log(n_e) [m^{-3}]$')

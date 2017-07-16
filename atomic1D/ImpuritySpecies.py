@@ -4,16 +4,17 @@ class ImpuritySpecies(object):
 	# all of the F77 importing is done in the seperate <<make json_update>> code since BOUT++ protocol 
 	# requires fortran code be isolated from main operation)
 
-	def __init__(self,symbol,adas_files_dict={},rate_coefficients={}):
+	def __init__(self,symbol,adas_files_dict={},rate_coefficients={},impurity_fraction=None):
 		# Searches for year, atomic_number, has_charge_exchange from user_input.json
 		# 
 		# Default initialiser for class
-		# (str) element symbol (e.g. 'C')
-		# (int) year for which OpenADAS data was searched (1996)
-		# (bool) whether cx_power (prc) was found for this element-year combination (True)
-		# (int) number of protons for impurity species (6)
-		# (str -> str) dictionary of OpenADAS files, indexed by file-type ('ionisation': 'scd96_c', ...)
-		# (str -> RateCoefficient) dictionary of RateCoefficient objects corresponding to adas files ('ionisation': <RateCoefficientObject>, ...)
+		# symbol              : (str)                    | element symbol (e.g. 'C')
+		# name                : (str)                    | full name of element (for printing only)
+		# year                : (int)                    | year for which OpenADAS data was searched (1996)
+		# has_charge_exchange : (bool)                   | whether cx_power (prc) was found for this element-year combination (True)
+		# atomic_number       : (int)                    | number of protons for impurity species (6)
+		# adas_files_dict     : (str -> str)             | dictionary of OpenADAS files, indexed by file-type ('ionisation': 'scd96_c', ...)
+		# rate_coefficients   : (str -> RateCoefficient) | dictionary of RateCoefficient objects corresponding to adas files ('ionisation': <RateCoefficientObject>, ...)
 				
 		import json
 
@@ -24,14 +25,14 @@ class ImpuritySpecies(object):
 
 		element_dict           = data_dict[symbol]
 
-		assert symbol          == element_dict['symbol']
-		self.symbol            = symbol
-		self.name              = element_dict['name']
-		self.year              = element_dict['year']
-		self.has_charge_exchange            = element_dict['has_charge_exchange']
-		self.atomic_number     = element_dict['atomic_number']
-		self.adas_files_dict   = adas_files_dict
-		self.rate_coefficients = rate_coefficients
+		assert symbol            == element_dict['symbol']
+		self.symbol              = symbol
+		self.name                = element_dict['name']
+		self.year                = element_dict['year']
+		self.has_charge_exchange = element_dict['has_charge_exchange']
+		self.atomic_number       = element_dict['atomic_number']
+		self.adas_files_dict     = adas_files_dict
+		self.rate_coefficients   = rate_coefficients
 
 	def __str__(self):
 		# Printing method, for easier inspection of object data
@@ -48,14 +49,18 @@ class ImpuritySpecies(object):
 		else:
 			_print_rate_check = 'Initialised'
 		
-		return 'ImpuritySpecies object with attributes'+\
-		'\n'+'{:>25} = {}'.format('symbol',			 		self.symbol)+\
-		'\n'+'{:>25} = {}'.format('year',			 		self.year)+\
-		'\n'+'{:>25} = {}'.format('has_charge_exchange',	self.has_charge_exchange)+\
-		'\n'+'{:>25} = {}'.format('atomic_number',	 		self.atomic_number)+\
-		'\n'+'{:>25} = {}'.format('adas_files_dict',		_print_adas_check)+\
-		'\n'+'{:>25} = {}'.format('rate_coefficients',		_print_rate_check)+\
-		'\n--------------------------------------------------\n'+_print_adas_dict
+		_printing_string = 'ImpuritySpecies object with attributes'+\
+		'\n{:>25} = {}'.format('symbol',			 		self.symbol)+\
+		'\n{:>25} = {}'.format('year',			 		self.year)+\
+		'\n{:>25} = {}'.format('has_charge_exchange',	self.has_charge_exchange)+\
+		'\n{:>25} = {}'.format('atomic_number',	 		self.atomic_number)+\
+		'\n{:>25} = {}'.format('adas_files_dict',		_print_adas_check)+\
+		'\n{:>25} = {}'.format('rate_coefficients',		_print_rate_check)
+
+		if len(self.adas_files_dict) != 0:
+			_printing_string += '\n--------------------------------------------------\n'+_print_adas_dict
+
+		return _printing_string
 
 	def addJSONFiles(self,physics_process,filetype_code,JSON_database_path):
 		# 1. Make the filename string expected for the json adas file
