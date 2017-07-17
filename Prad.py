@@ -119,8 +119,20 @@ def computeRadiatedPower(impurity, experiment, iz_stage_distribution):
 		# Find the coefficient object (i.e. L s.t. Prad = L n_1 n_2)
 		coeff = impurity.rate_coefficients[physics_process] #will return a RateCoefficient object
 
+		# Coefficients have Z data entries, corresponding to a charge range of either 0 to (Z-1) for electron-
+		# bound target or 1 to Z for charged target
 		coeff_evaluated = np.zeros((impurity.atomic_number, experiment.data_shape))
-		power_evaluated = np.zeros((impurity.atomic_number, experiment.data_shape))
+		# Want to determine the power evaluated for all charge states, including fully ionised state
+		# Therefore add +1 to range to include endpoint
+		power_evaluated = np.zeros((impurity.atomic_number+1, experiment.data_shape))
+		
+		# Iterate over 0 to Z-1, i.e. not inclusive of endpoint since RateCoefficients are only 6 entries long
+		# This corresponds to different target charge states depending on the process
+		# For ionic target processes (recombination, charge exchange, cx power, continuum rec/brems power)
+		# 	k = 1+ to Z+
+		# For bound-electron target processes (ionisation and line excitation/relaxation power)
+		# 	k = 0+ (neutral) to (Z-1)+
+		
 		for k in range(impurity.atomic_number):
 			# Evaluate the coefficient
 			# Will return a 1D array since call1D has grid=False on interpolation evaluation
@@ -129,18 +141,37 @@ def computeRadiatedPower(impurity, experiment, iz_stage_distribution):
 			# ionisation stage and the second index gives the position
 			coeff_evaluated[k,:] = coeff.call1D(k, experiment.temperature, experiment.density)
 
-			if physics_process is 'continuum_power':
-				# Prad = L * n_e * n_z^(k+1)
-				scale = experiment.density * (experiment.impurity_density * iz_stage_distribution[k+1])
-			elif physics_process is 'line_power':
+			if physics_process is 'line_power':
+				# range of k is 0 to (Z-1)+ (needs bound electrons)
+				target_charge_state = k #electron-bound target
+
 				# Prad = L * n_e * n_z^k+
-				scale = experiment.density * (experiment.impurity_density * iz_stage_distribution[k])
+				#      = L * scale
+				n_e = experiment.density
+				n_z_charge_state = experiment.impurity_density * iz_stage_distribution[target_charge_state]
+				scale = n_e * n_z_charge_state
+			elif physics_process is 'continuum_power':
+				# range of k is 1+ to Z+ (needs charged target)
+				target_charge_state = k + 1 #charged target
+
+				# Prad = L * n_e * n_z^(k+1)
+				#      = L * scale
+				n_e = experiment.density
+				n_z_charge_state = experiment.impurity_density * iz_stage_distribution[target_charge_state]
+				scale = n_e * n_z_charge_state
 			elif physics_process is 'cx_power':
-				# Prad = L * n_0 * n_z^k+
-				scale = (experiment.density * experiment.neutral_fraction) * (experiment.impurity_density * iz_stage_distribution[k])
+				# range of k is 1+ to Z+ (needs charged target)
+				target_charge_state = k + 1 #charged target
+
+				# Prad = L * n_0 * n_z^(k+1)+
+				#      = L * scale
+				n_0 = experiment.density * experiment.neutral_fraction
+				n_z_charge_state = experiment.impurity_density * iz_stage_distribution[target_charge_state]
+				scale = n_0 * n_z_charge_state
 
 			# Computed the power radiated (W/m^3)
-			power_evaluated[k,:] = coeff_evaluated[k,:] * scale
+			# P_rad = L * scale
+			power_evaluated[target_charge_state,:] = coeff_evaluated[k,:] * scale
 
 		# Append the power radiated to the radiated_power dictionary
 		# (i.e. add the full [Z * data_length] list to the dictionary)
@@ -222,7 +253,8 @@ def plotRadiatedPowerStage(impurity, experiment):
 
 	ax2 = ax1.twinx()
 
-	for k in range(impurity.atomic_number):
+	# Include the fully-ionised state (endpoint of range, requires +1)
+	for k in range(impurity.atomic_number+1):
 		ax1.plot(experiment.radiated_power['total'][k,:],label='{}'.format(k))	
 	ax1.plot(experiment.total_power,label='total')
 
@@ -258,7 +290,9 @@ def plotRadiatedChargeExchange(impurity, experiment):
 
 	ax2 = ax1.twinx()
 
-	for k in range(1,impurity.atomic_number):
+	# Include the fully-ionised state (endpoint of range, requires +1)
+	# Note that cx_power requires charged target
+	for k in range(1,impurity.atomic_number+1):
 		ax1.plot(experiment.radiated_power['cx_power'][k,:],label='{}'.format(k))	
 
 	ax1.set_xlabel('Distance (downstream, a.u.)')
@@ -334,8 +368,8 @@ if __name__ == '__main__':
 	computeRadiatedPower(impurity, experiment, iz_stage_distribution)
 
 	# Export results/plot
-	# plotRadiatedPowerProcess(experiment)
-	# plotRadiatedPowerStage(impurity,experiment)
+	plotRadiatedPowerProcess(experiment)
+	plotRadiatedPowerStage(impurity,experiment)
 	plotRadiatedChargeExchange(impurity,experiment)
 	
 	
