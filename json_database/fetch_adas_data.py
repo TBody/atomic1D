@@ -227,7 +227,7 @@ if __name__ == '__main__':
     print('Database url: {}\n'.format(open_adas_url))
 
     atomic_data = './adas_data'
-    elements_years = [('carbon', 96),('nitrogen', 96),('hydrogen',96)]
+    elements_years = [('carbon', 96),('nitrogen', 96),('hydrogen',96),('hydrogen',12)]
     print('Element-data will be downloaded for')
     for element, year in elements_years:
         print('{} (year = 19{})'.format(element,year))
