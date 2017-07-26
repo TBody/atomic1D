@@ -328,12 +328,16 @@ def computeDerivs(impurity, experiment, iz_stage_distribution):
 
 	Nik = Ni * iz_stage_distribution[:,constant_position_index]
 
-	## Print to verify copy
-	# print("{:>8}:{:.2e}".format("Te",Te))
-	# print("{:>8}:{:.2e}".format("Ne",Ne))
-	# print("{:>8}:{:.2e}".format("Nn",Nn))
+	# print("{:>8}:{:.6e}".format("Te",Te))
+	# print("{:>8}:{:.6e}".format("Ne",Ne))
+	# print("{:>8}:{:.6e}".format("Nn",Nn))
 	# for k in range(Z+1):
 	# 	print("{:>5}^{}: {:.2e}".format("Ni",k,Nik[k]))
+	# for physics_process in ['ionisation','recombination','continuum_power','line_power','cx_recc','cx_power']:
+	# 	coeff = impurity.rate_coefficients[physics_process]
+	# 	for k in range(Z):
+	# 		coeff_evaluated = coeff.call1D(k, Te, Ne) #return scalar
+	# 		print("{}({}) = {:.5e}".format(physics_process, k, coeff_evaluated))
 
 	Pcool = 0 # Pcool = dydt[0]
 	Prad = 0 # Prad  = dydt[1]
@@ -346,7 +350,6 @@ def computeDerivs(impurity, experiment, iz_stage_distribution):
 	# Select the processes which provide a 'L' coefficient that contributes to radiation
 	radiative_processes = ['continuum_power','line_power']
 
-	# Calculate the population equation
 
 	for physics_process in population_processes:
 		# Find the coefficient object (i.e. k s.t. dNi = k n_1 n_2)
@@ -370,30 +373,25 @@ def computeDerivs(impurity, experiment, iz_stage_distribution):
 			if physics_process is 'ionisation':
 				# range of k is 0 to (Z-1)+ (needs bound electrons)
 				source_charge_state = k #electron-bound target
-				sink_charge_state = source_charge_state + 1 #resulting charge state
+				sink_charge_state = k + 1 #resulting charge state
 
-				# dNi = k * Ne * n_z^k+
-				#     = k * scale
-				scale = Ne * Nik[source_charge_state]
 			elif physics_process is 'recombination':
 				# range of k is 1+ to Z+ (needs charged target)
 				source_charge_state = k + 1 #charged target
-				sink_charge_state = source_charge_state - 1 #resulting charge state
+				sink_charge_state = k #resulting charge state
 
-				# dNi = k * Ne * n_z^(k+1)
-				#     = k * scale
-				scale = Ne * Nik[source_charge_state]
+			rate = coeff_evaluated * Ne * Nik[source_charge_state]
+			print("{}({}),   R = {:.5e}".format(physics_process, k, rate))
 
 			# Compute the resulting change in the ionisation distribution
-			dNik[source_charge_state] -= coeff_evaluated * scale
-			dNik[sink_charge_state] += coeff_evaluated * scale
+			dNik[source_charge_state] -= rate
+			dNik[sink_charge_state] += rate
 			if physics_process is 'ionisation':
-				dNe += coeff_evaluated * scale
+				dNe += rate
 			elif physics_process is 'recombination':
-				dNe -= coeff_evaluated * scale
+				dNe -= rate
 
-	# for k in range(Z+1):
-	# 	print("{:>5}^{}: {:.2e}".format("dNi",k,dNik[k]))
+			print("{}({}), dNe = {:.5e}".format(physics_process, k, dNe))
 
 	# Calculate the electron cooling power due to ionisation balance
 	# (This could be added to the above loop for speed, but is kept here for clarity)
@@ -448,35 +446,35 @@ def computeDerivs(impurity, experiment, iz_stage_distribution):
 	# Add the total (no cx) Prad to Pcool
 	Pcool += Prad
 
-	if impurity.has_charge_exchange:
-		# Include charge exchange if the impurity has this attribute
-		physics_processes = ['cx_recc','cx_power']
-		coeff = impurity.rate_coefficients[physics_process] #will return a RateCoefficient object
+	# if impurity.has_charge_exchange:
+	# 	# Include charge exchange if the impurity has this attribute
+	# 	physics_processes = ['cx_recc','cx_power']
+	# 	coeff = impurity.rate_coefficients[physics_process] #will return a RateCoefficient object
 
-		for k in range(Z):
-			coeff_evaluated = coeff.call1D(k, Te, Ne) #return scalar
+	# 	for k in range(Z):
+	# 		coeff_evaluated = coeff.call1D(k, Te, Ne) #return scalar
 
-			if physics_process is 'cx_recc':
-					# range of k is 1+ to Z+ (needs charged target)
-					source_charge_state = k + 1 #charged target
-					sink_charge_state = source_charge_state - 1 #resulting charge state
+	# 		if physics_process is 'cx_recc':
+	# 				# range of k is 1+ to Z+ (needs charged target)
+	# 				source_charge_state = k + 1 #charged target
+	# 				sink_charge_state = k #resulting charge state
 
-					# dNi = k * Nn * n_z^(k+1)+
-					#     = k * scale
-					scale = Nn * Nik[source_charge_state]
+	# 				# dNi = k * Nn * n_z^(k+1)+
+	# 				#     = k * scale
+	# 				scale = Nn * Nik[source_charge_state]
 
-					dNik[source_charge_state] -= coeff_evaluated * scale
-					dNik[sink_charge_state] += coeff_evaluated * scale
-					dNn -= coeff_evaluated * scale
+	# 				dNik[source_charge_state] -= coeff_evaluated * scale
+	# 				dNik[sink_charge_state] += coeff_evaluated * scale
+	# 				dNn -= coeff_evaluated * scale
 
-			elif physics_process is 'cx_power':
-					# range of k is 1+ to Z+ (needs charged target)
-					source_charge_state = k + 1 #charged target
+	# 		elif physics_process is 'cx_power':
+	# 				# range of k is 1+ to Z+ (needs charged target)
+	# 				source_charge_state = k + 1 #charged target
 
-					# Prad = L * Nn * n_z^(k+1)+
-					#      = L * scale
-					scale = Nn * Nik[source_charge_state]
-					Prad += coeff_evaluated * scale
+	# 				# Prad = L * Nn * n_z^(k+1)+
+	# 				#      = L * scale
+	# 				scale = Nn * Nik[source_charge_state]
+	# 				Prad += coeff_evaluated * scale
 
 	dydt = np.zeros(Z+4+1)
 
@@ -518,7 +516,7 @@ if __name__ == '__main__':
 	# where t is time index, s is 1D distance index
 	experiment = SD1DData(input_file)
 
-	t = experiment.data_shape[0]
+	t = experiment.data_shape[-1]
 	# Extract data for a single time-step
 	experiment.selectSingleTime(t)
 
