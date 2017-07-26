@@ -387,7 +387,10 @@ def computeDerivs(impurity, experiment, iz_stage_distribution):
 			# Compute the resulting change in the ionisation distribution
 			dNik[source_charge_state] -= coeff_evaluated * scale
 			dNik[sink_charge_state] += coeff_evaluated * scale
-			dNe -= coeff_evaluated * scale
+			if physics_process is 'ionisation':
+				dNe += coeff_evaluated * scale
+			elif physics_process is 'recombination':
+				dNe -= coeff_evaluated * scale
 
 	# for k in range(Z+1):
 	# 	print("{:>5}^{}: {:.2e}".format("dNi",k,dNik[k]))
